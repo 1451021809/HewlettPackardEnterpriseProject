@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="findUser" class="userAction" method="findUser">
+			<result name="s">/WEB-INF/jsp/list.jsp</result>
+			<result name="delete">/WEB-INF/jsp/list.jsp</result>
+		</action>
+
+		<action name="delete" class="userAction" method="deleteUser">
+			<result name="delete">/WEB-INF/jsp/list.jsp</result>
+		</action>
+
+		<action name="*" class="LoginAndRegisterAction" method="{1}">
+			<result name="login">/index.html</result>
+		</action>
+	</package>
+</struts>

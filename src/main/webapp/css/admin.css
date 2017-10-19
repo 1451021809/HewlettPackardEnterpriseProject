@@ -1,0 +1,108 @@
+.head {
+    min-width: 1300px;
+    height: 93px;
+}
+.usermanage li{
+			display: none;
+	}
+.head_a {
+    margin-top: -8px;
+    text-decoration: none;
+    font-size: 20px;
+    float: right;
+    padding-left: 40px;
+    color: #707070;
+}
+a{
+	color: #707070;
+	text-decoration: none;
+}
+.head_a:hover {
+    color: #238BFF;
+}
+a:hover{
+	color: #238BFF;
+}
+
+.head_h1 {
+    margin-left: 50px;
+    width: 342px;
+}
+
+.head_d {
+    background-color: red;
+}
+
+.body {
+    margin-top: -50px;
+    background-color: #F6F6F6;
+    min-width: 1300px;
+    height: 820px;
+}
+
+.left {
+    margin-top: 20px;
+    margin-left: 100px;
+    float: left;
+    width: 228px;
+    height: 800px;
+    background-color: #EBEBEB;
+}
+.ul-div{
+	margin-top:130px ;
+}
+.fontsize a{
+	font-size: 8px;
+	color: blue;
+	text-align: left;
+}
+
+
+.right {
+    position: absolute;
+    margin-top: 20px;
+    margin-right: 10px;
+    float: left;
+    background-color: #EBEBEB;
+    width: 950px;
+    height: 900px;
+}
+table{
+	margin-top: 80px;
+	margin-left: 70px;
+}
+table,
+th,
+td {
+     border: solid 1px black;
+    border-collapse: collapse;
+}
+th{
+	width: 150px;
+}
+td{
+    text-align: center;
+}
+.user_mange{
+	margin-left: 20px;
+	font-size: 20px;
+	margin-top: 0px;
+	float: left;
+}
+.check{
+	float: right;
+}
+.input{
+    margin-left: 250px;
+    margin-top: 200px;
+}
+.input input{
+    width: 250px;
+    height: 20px;
+}
+.button{
+    margin-left: 360px;
+}
+.button button{
+    width: 80px;
+}

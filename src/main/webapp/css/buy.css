@@ -1,0 +1,67 @@
+
+    .body_one {
+        height: 400px;
+        width: 95%;
+
+        margin: 30px auto;
+    }
+
+    .body_left {
+
+        height: 380px;
+        width: 47%;
+        float: left;
+        margin: 8px auto;
+        padding: 0px 5px;
+    }
+
+    .body_right {
+
+        height: 380px;
+        width: 47%;
+        float: right;
+        margin: 8px auto;
+    }
+
+    .body_right table {
+        width: 380px;
+    }
+
+    .body_right table tr td {
+        color: gray;
+    }
+
+    .body_right table .underline_td_two {
+        color: blue;
+    }
+
+
+    thead th {
+        text-align: left;
+        font-size: x-large;
+    }
+
+    button {
+        height: 50px;
+        width: 260px;
+        background-color: #FFA500;
+        font-size: x-large;
+        color: white;
+    }
+
+    input {
+        height: 30px;
+        width: 160px;
+    }
+
+    .body_two {
+        height: 400px;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .body_two table {
+        width: 500px;
+        height: 300px;
+        margin: 30px;
+    }

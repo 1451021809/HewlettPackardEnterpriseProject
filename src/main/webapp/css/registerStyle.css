@@ -1,0 +1,89 @@
+body {
+    background-image: url(../images/background.jpg);
+    text-align: center;
+    font-family: "宋体";
+}
+
+.body {
+    width: 800px;
+    height: 640px;
+    margin: 0 auto;
+    background-color: #eee;
+    border-radius: 15px;
+}
+
+header {
+    position: absolute;
+    width: 700px;
+    height: 100px;
+    font-weight: bold;
+}
+
+img {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 10px;
+    left: 270px;
+}
+
+header>label {
+    position: absolute;
+    font-size: 24px;
+    top: 30px;
+}
+
+input {
+    width: 400px;
+    height: 30px;
+    padding-left: 10px;
+    border: 0;
+}
+
+.body-bodyer {
+    width: 600px;
+    height: 500px;
+    margin: 0 auto;
+    padding-top: 70px;
+    font-size: 18px;
+}
+
+.body-bodyer div {
+    margin-top: 30px;
+}
+
+.gender {
+    width: 280px;
+}
+
+.gender input {
+    width: 15px;
+    height: 15px;
+}
+
+.occupation select {
+    width: 410px;
+    height: 30px;
+    padding-left: 10px;
+    border: 0;
+}
+
+.hobby select {
+    width: 410px;
+    height: 100px;
+    padding-left: 10px;
+    font-size: 16px;
+    border: 0;
+}
+
+button {
+    width: 60px;
+    height: 30px;
+    margin: 10px 50px;
+}
+
+footer {
+    font-size: 14px;
+    margin: 20px;
+    color: white;
+}

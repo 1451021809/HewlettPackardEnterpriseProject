@@ -1,0 +1,213 @@
+/*初始化另存为一个文件*/
+
+body,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    font: 16px"宋体", "Arial Narrow", HELVETICA, Sans-serif;
+    background: #fff;
+    -webkit-text-size-adjust: 100%;
+}
+
+a {
+    color: #2d374b;
+    text-decoration: none
+}
+
+a:hover {
+    color: #cd0200;
+    text-decoration: underline;
+}
+
+em {
+    font-style: normal
+}
+
+li {
+    list-style: none
+}
+
+img {
+    border: 0;
+    vertical-align: middle
+}
+
+
+p {
+    word-wrap: break-word
+}
+
+.head-warp {
+    width: 1347px;
+    height: 73px;
+}
+
+.head {
+    width: 1190px;
+    height: 73px;
+    margin: 0px auto;
+}
+
+.head .logo {
+    float: left;
+    margin-top: 19px;
+}
+
+.main-nav {
+    width: 687px;
+    height: 36px;
+}
+
+.head .main-nav {
+    float: right;
+    margin-top: 38px;
+}
+
+.head .main-nav a:link {
+    text-decoration: none;
+}
+
+.head .main-nav a:hover {
+    color: #228bff;
+    border-bottom: 3px solid #228bff;
+}
+
+.head .main-nav a {
+    position: relative;
+    float: left;
+    display: block;
+    margin-left: 36px;
+    min-width: 120px;
+    font-size: 18px;
+    color: #707070;
+    line-height: 33px;
+    text-align: center;
+}
+
+.main-div {
+    width: 100%;
+    height: 1600px;
+}
+
+
+/*footer*/
+
+.i-logo-lct {
+
+    background: url(../images/logo_lct.png);
+}
+
+.i-phone {
+    background: url(../images/i-phone.png);
+}
+
+
+/*banner*/
+
+.banner {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    min-width: 1190px;
+    position: relative;
+    z-index: 89;
+}
+
+.banner ul li .image-warp {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+
+.project {
+    width: 1190px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+    margin: 0 auto;
+    background: #f6f6f6;
+    padding-left: 30px;
+}
+
+.table {
+
+    width: 1190px;
+    margin: 0 auto;
+}
+
+.table-content {
+
+    float: right;
+    font-size: 16px;
+}
+
+.table-content input {
+    height: 38px;
+    width: 116px;
+    border: 1px solid red;
+    background: white;
+    color: red;
+}
+
+.table-content input:hover {
+    background: red;
+    color: white;
+    cursor: pointer;
+}
+
+.table-content tr td {
+    height: 80px;
+    width: 140px;
+}
+
+.foundation {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 30px;
+    float: left;
+    height: 570px;
+    width: 150px;
+    color: white;
+    background: url(../images/pag.png);
+}
+
+.cooperation {
+    position: absolute;
+    bottom: 112px;
+    height: 350px;
+    width: 100%;
+    background: #f6f6f6;
+}
+
+.cooperation-context {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+.organization {
+    height: 50px;
+    font-size: 25px;
+    line-height: 70px;
+}
