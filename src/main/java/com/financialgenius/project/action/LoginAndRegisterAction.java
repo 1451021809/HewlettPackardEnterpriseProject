@@ -22,9 +22,10 @@ public class LoginAndRegisterAction {
 
 	private List<UserModel> list;
 	private UserModel user;
+	private UserModel isLogin;
 
 	public String Login() {
-		UserModel isLogin = impl.isLogin(user);
+		isLogin = impl.isLogin(user);
 		if (isLogin == null) {
 			return "noLogin";
 		} else {
@@ -45,5 +46,13 @@ public class LoginAndRegisterAction {
 
 	public void setUser(UserModel user) {
 		this.user = user;
+	}
+
+	public UserModel getIsLogin() {
+		return isLogin;
+	}
+
+	public void setIsLogin(UserModel isLogin) {
+		this.isLogin = isLogin;
 	}
 }
