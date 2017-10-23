@@ -32,10 +32,10 @@ public class FundModel {
 	private String describe;
 
 	@Column(name = "fund_proportion", precision = 10, scale = 4)
-	private Double proportion;
+	private double proportion;
 
 	@Column(name = "fund_profit", precision = 10, scale = 2)
-	private Double profit;
+	private double profit;
 
 	@Column(name = "fund_createDate")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -65,8 +65,13 @@ public class FundModel {
 		this.describe = describe;
 	}
 
-	public Double getProportion() {
+
+	public double getProportion() {
 		return proportion;
+	}
+
+	public void setProportion(double proportion) {
+		this.proportion = proportion;
 	}
 
 	public void setProportion(Double proportion) {
@@ -74,6 +79,7 @@ public class FundModel {
 	}
 
 	public Double getProfit() {
+
 		return profit;
 	}
 
@@ -104,7 +110,9 @@ public class FundModel {
 		this.id = id;
 	}
 
+
 	public FundModel(String name, String describe, Double proportion, Double profit, Date createDate) {
+
 		super();
 		this.name = name;
 		this.describe = describe;
@@ -114,6 +122,7 @@ public class FundModel {
 	}
 
 	public FundModel(Long id, String name, String describe, Double proportion, Double profit, Date createDate) {
+
 		super();
 		this.id = id;
 		this.name = name;

@@ -30,7 +30,7 @@ public class TransactionModel {
 	private String type;
 
 	@Column(name = "transaction_money")
-	private BigInteger money;
+	private double money;
 
 	@Column(name = "transaction_createDate")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -52,11 +52,11 @@ public class TransactionModel {
 		this.type = type;
 	}
 
-	public BigInteger getMoney() {
+	public double getMoney() {
 		return money;
 	}
 
-	public void setMoney(BigInteger money) {
+	public void setMoney(double money) {
 		this.money = money;
 	}
 
@@ -77,14 +77,14 @@ public class TransactionModel {
 		this.id = id;
 	}
 
-	public TransactionModel(String type, BigInteger money, Date createDate) {
+	public TransactionModel(String type, double money, Date createDate) {
 		super();
 		this.type = type;
 		this.money = money;
 		this.createDate = createDate;
 	}
 
-	public TransactionModel(Long id, String type, BigInteger money, Date createDate) {
+	public TransactionModel(Long id, String type, double money, Date createDate) {
 		super();
 		this.id = id;
 		this.type = type;
