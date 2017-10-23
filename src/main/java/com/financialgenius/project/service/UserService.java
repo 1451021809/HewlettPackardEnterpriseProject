@@ -21,8 +21,6 @@ public interface UserService {
 	 */
 	UserModel isLogin(UserModel user);
 
-	void deleteUser(UserModel user);
-
 	// 注册（保存）
 	void register(UserModel userModel);
 
