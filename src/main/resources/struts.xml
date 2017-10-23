@@ -5,11 +5,32 @@
 
 <struts>
 	<package name="default" namespace="/" extends="struts-default">
+
 		<action name="*" class="LoginAndRegisterAction" method="{1}">
-			<result name="login">/user/login.jsp</result>
+			<result name="login">/index.jsp</result>
+			<result name="noLogin">/user/login.jsp</result>
 			<result name="register">/user/register.jsp</result>
 			<result name="bill">/user/bill.jsp</result>
 			<result name="message">/user/notification.jsp</result>
+		</action>
+		<action name="Wallet" class="WalletAction" method="Wallet">
+			<result name="wallet">/user/wallet.jsp</result>
+			<result name="noLogin">/user/login.jsp</result>
+		</action>
+		<action name="deleteBankCard" class="WalletAction" method="deleteBankCard">
+			<result name="deleteSuccess">/user/wallet.jsp</result>
+		</action>
+		<action name="addBankCard01" class="WalletAction" method="addBankCard01">
+			<result name="add">/user/addBankCard.jsp</result>
+		</action>
+		<action name="addBankCard" class="WalletAction" method="addBankCard">
+			<result name="addSuccess">/user/wallet.jsp</result>
+		</action>
+		<action name="Recharge" class="WalletAction" method="Recharge">
+			<result name="Success">/user/wallet.jsp</result>
+		</action>
+		<action name="Withdrawals" class="WalletAction" method="Withdrawals">
+			<result name="Success">/user/wallet.jsp</result>
 		</action>
 	</package>
 </struts>

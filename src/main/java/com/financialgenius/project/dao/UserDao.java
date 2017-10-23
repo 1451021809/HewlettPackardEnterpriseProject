@@ -12,6 +12,12 @@ import com.financialgenius.project.model.UserModel;
 
 @Repository
 public interface UserDao {
+	/**
+	 * 用户登录
+	 * 
+	 * @param wallet
+	 * @return
+	 */
 	UserModel isLogin(UserModel user);
 
 	boolean deleteUser(UserModel user);

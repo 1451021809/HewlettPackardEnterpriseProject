@@ -32,13 +32,13 @@ public class WalletModel {
 	private Long id;
 
 	@Column(name = "wallet_assets", precision = 20, scale = 2)
-	private BigInteger proportion;
+	private Double proportion;
 
 	@Column(name = "wallet_totalProfit", precision = 20, scale = 2)
-	private BigInteger totalProfit;
+	private Double totalProfit;
 
 	@OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "user_id", updatable = false)
 	private UserModel users;
 
 	public Long getId() {
@@ -49,19 +49,19 @@ public class WalletModel {
 		this.id = id;
 	}
 
-	public BigInteger getProportion() {
+	public Double getProportion() {
 		return proportion;
 	}
 
-	public void setProportion(BigInteger proportion) {
+	public void setProportion(Double proportion) {
 		this.proportion = proportion;
 	}
 
-	public BigInteger getTotalProfit() {
+	public Double getTotalProfit() {
 		return totalProfit;
 	}
 
-	public void setTotalProfit(BigInteger totalProfit) {
+	public void setTotalProfit(Double totalProfit) {
 		this.totalProfit = totalProfit;
 	}
 
@@ -87,13 +87,13 @@ public class WalletModel {
 		this.id = id;
 	}
 
-	public WalletModel(BigInteger proportion, BigInteger totalProfit) {
+	public WalletModel(Double proportion, Double totalProfit) {
 		super();
 		this.proportion = proportion;
 		this.totalProfit = totalProfit;
 	}
 
-	public WalletModel(Long id, BigInteger proportion, BigInteger totalProfit) {
+	public WalletModel(Long id, Double proportion, Double totalProfit) {
 		super();
 		this.id = id;
 		this.proportion = proportion;

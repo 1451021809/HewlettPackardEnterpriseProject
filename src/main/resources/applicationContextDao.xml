@@ -76,7 +76,7 @@
 	<!-- 事物的切面 -->
 	<aop:config>
 		<aop:pointcut
-			expression="execution(* com.financialgenius.project.dao.UserDao.*(..))"
+			expression="execution(* com.financialgenius.project.dao.*.*(..))"
 			id="myPointcut"></aop:pointcut>
 		<aop:advisor advice-ref="myAdvice" pointcut-ref="myPointcut" />
 	</aop:config>

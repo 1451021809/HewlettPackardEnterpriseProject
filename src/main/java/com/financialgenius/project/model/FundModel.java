@@ -1,20 +1,12 @@
 package com.financialgenius.project.model;
 
-import java.math.BigInteger;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -73,6 +65,7 @@ public class FundModel {
 		this.describe = describe;
 	}
 
+
 	public double getProportion() {
 		return proportion;
 	}
@@ -81,12 +74,17 @@ public class FundModel {
 		this.proportion = proportion;
 	}
 
-	public double getProfit() {
+	public void setProportion(Double proportion) {
+		this.proportion = proportion;
+	}
+
+	public Double getProfit() {
+
 		return profit;
 	}
 
-	public void setProfit(BigInteger profit) {
-		profit = profit;
+	public void setProfit(Double profit) {
+		this.profit = profit;
 	}
 
 	public Date getCreateDate() {
@@ -112,7 +110,9 @@ public class FundModel {
 		this.id = id;
 	}
 
-	public FundModel(String name, String describe, double proportion, double profit, Date createDate) {
+
+	public FundModel(String name, String describe, Double proportion, Double profit, Date createDate) {
+
 		super();
 		this.name = name;
 		this.describe = describe;
@@ -121,7 +121,8 @@ public class FundModel {
 		this.createDate = createDate;
 	}
 
-	public FundModel(Long id, String name, String describe, double proportion, double profit, Date createDate) {
+	public FundModel(Long id, String name, String describe, Double proportion, Double profit, Date createDate) {
+
 		super();
 		this.id = id;
 		this.name = name;

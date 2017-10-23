@@ -18,6 +18,12 @@ import com.financialgenius.project.model.UserModel;
 import com.financialgenius.project.service.impl.UserServiceImpl;
 import com.opensymphony.xwork2.ActionContext;
 
+/**
+ * 登录和注册
+ * 
+ * @author Huangyu
+ *
+ */
 @Component("LoginAndRegisterAction")
 public class LoginAndRegisterAction {
 	@Autowired
@@ -35,13 +41,15 @@ public class LoginAndRegisterAction {
 	private List<ProfitModel> profitModels;
 	private List<TransactionModel> transactionModels;
 	Page page = new Page();
+	private UserModel isLogin;
 
 	// 登录
 	public String Login() {
-		UserModel isLogin = impl.isLogin(user);
+		isLogin = impl.isLogin(user);
 		if (isLogin == null) {
 			return "noLogin";
 		} else {
+			// 保存用户登录信息
 			ServletActionContext.getRequest().getSession().setAttribute("isLogin", isLogin);
 			return "login";
 		}
@@ -180,4 +188,11 @@ public class LoginAndRegisterAction {
 		this.page = page;
 	}
 
+	public UserModel getIsLogin() {
+		return isLogin;
+	}
+
+	public void setIsLogin(UserModel isLogin) {
+		this.isLogin = isLogin;
+	}
 }

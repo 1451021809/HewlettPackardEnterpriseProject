@@ -9,9 +9,16 @@ import com.financialgenius.project.model.ProfitModel;
 import com.financialgenius.project.model.RolesModel;
 import com.financialgenius.project.model.TransactionModel;
 import com.financialgenius.project.model.UserModel;
+import com.financialgenius.project.model.WalletModel;
 
 @Service
 public interface UserService {
+	/**
+	 * 用户登录
+	 * 
+	 * @param user
+	 * @return
+	 */
 	UserModel isLogin(UserModel user);
 
 	void deleteUser(UserModel user);
@@ -39,5 +46,4 @@ public interface UserService {
 
 	// 获取总数
 	int TransactionCount();
-
 }
