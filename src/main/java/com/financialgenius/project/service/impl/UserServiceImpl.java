@@ -30,7 +30,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void register(UserModel userModel) {
 		userDaoImpl.register(userModel);
-
 	}
 
 	// 注册（查询账户是否存在）

@@ -2,10 +2,8 @@ package com.financialgenius.project.action;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +14,6 @@ import com.financialgenius.project.model.RolesModel;
 import com.financialgenius.project.model.TransactionModel;
 import com.financialgenius.project.model.UserModel;
 import com.financialgenius.project.service.impl.UserServiceImpl;
-import com.opensymphony.xwork2.ActionContext;
 
 /**
  * 登录和注册
