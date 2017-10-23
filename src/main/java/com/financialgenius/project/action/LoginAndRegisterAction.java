@@ -9,6 +9,12 @@ import org.springframework.stereotype.Component;
 import com.financialgenius.project.model.UserModel;
 import com.financialgenius.project.service.impl.UserServiceImpl;
 
+/**
+ * 登录和注册
+ * 
+ * @author Huangyu
+ *
+ */
 @Component("LoginAndRegisterAction")
 public class LoginAndRegisterAction {
 	@Autowired
@@ -22,6 +28,7 @@ public class LoginAndRegisterAction {
 		if (isLogin == null) {
 			return "noLogin";
 		} else {
+			// 保存用户登录信息
 			ServletActionContext.getRequest().getSession().setAttribute("isLogin", isLogin);
 			return "login";
 		}

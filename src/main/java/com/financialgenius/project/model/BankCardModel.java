@@ -22,7 +22,7 @@ public class BankCardModel {
 	private Long id;
 
 	@Column(name = "bankcard_number")
-	private int number;
+	private String number;
 
 	public Long getId() {
 		return id;
@@ -32,11 +32,11 @@ public class BankCardModel {
 		this.id = id;
 	}
 
-	public int getNumber() {
+	public String getNumber() {
 		return number;
 	}
 
-	public void setNumber(int number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 
@@ -54,12 +54,12 @@ public class BankCardModel {
 		this.id = id;
 	}
 
-	public BankCardModel(int number) {
+	public BankCardModel(String number) {
 		super();
 		this.number = number;
 	}
 
-	public BankCardModel(Long id, int number) {
+	public BankCardModel(Long id, String number) {
 		super();
 		this.id = id;
 		this.number = number;

@@ -16,12 +16,6 @@ public class UserDaoImpl implements UserDao {
 	private BaseDao baseDao;
 
 	@Override
-	public boolean deleteUser(UserModel user) {
-		baseDao.getHibernateTemplate().delete(user);
-		return true;
-	}
-
-	@Override
 	public UserModel isLogin(UserModel user) {
 		String sql = "from UserModel where username=? and password=? and status=?";
 		List<UserModel> list = (List<UserModel>) baseDao.getHibernateTemplate().find(sql, user.getUsername(),

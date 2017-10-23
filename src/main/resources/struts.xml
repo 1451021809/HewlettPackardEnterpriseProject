@@ -5,17 +5,24 @@
 
 <struts>
 	<package name="default" namespace="/" extends="struts-default">
-		<action name="findUser" class="userAction" method="findUser">
-			<result name="s">/WEB-INF/jsp/list.jsp</result>
-			<result name="delete">/WEB-INF/jsp/list.jsp</result>
-		</action>
-
-		<action name="delete" class="userAction" method="deleteUser">
-			<result name="delete">/WEB-INF/jsp/list.jsp</result>
-		</action>
 
 		<action name="*" class="LoginAndRegisterAction" method="{1}">
-			<result name="login">/index.html</result>
+			<result name="login">/index.jsp</result>
+			<result name="noLogin">/user/login.jsp</result>
+		</action>
+
+		<action name="Wallet" class="WalletAction" method="Wallet">
+			<result name="wallet">/user/wallet.jsp</result>
+			<result name="noLogin">/user/login.jsp</result>
+		</action>
+		<action name="deleteBankCard" class="WalletAction" method="deleteBankCard">
+			<result name="deleteSuccess">/user/wallet.jsp</result>
+		</action>
+		<action name="addBankCard01" class="WalletAction" method="addBankCard01">
+			<result name="add">/user/addBankCard.jsp</result>
+		</action>
+		<action name="addBankCard" class="WalletAction" method="addBankCard">
+			<result name="addSuccess">/user/wallet.jsp</result>
 		</action>
 	</package>
 </struts>
