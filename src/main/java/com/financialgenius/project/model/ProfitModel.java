@@ -27,7 +27,7 @@ public class ProfitModel {
 	private Long id;
 
 	@Column(name = "profit_profit", precision = 20, scale = 2)
-	private BigInteger profit;
+	private double profit;
 
 	@Column(name = "profit_createDate")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -41,11 +41,11 @@ public class ProfitModel {
 		this.id = id;
 	}
 
-	public BigInteger getProfit() {
+	public double getProfit() {
 		return profit;
 	}
 
-	public void setProfit(BigInteger profit) {
+	public void setProfit(double profit) {
 		this.profit = profit;
 	}
 
@@ -71,13 +71,13 @@ public class ProfitModel {
 		this.id = id;
 	}
 
-	public ProfitModel(BigInteger profit, Date createDate) {
+	public ProfitModel(double profit, Date createDate) {
 		super();
 		this.profit = profit;
 		this.createDate = createDate;
 	}
 
-	public ProfitModel(Long id, BigInteger profit, Date createDate) {
+	public ProfitModel(Long id, double profit, Date createDate) {
 		super();
 		this.id = id;
 		this.profit = profit;

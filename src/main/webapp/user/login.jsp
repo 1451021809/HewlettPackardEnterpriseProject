@@ -7,7 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户登录</title>
-<link rel="stylesheet" type="text/css" href="../css/style.css">
+     <%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/style.css">
 </head>
 
 <body>
