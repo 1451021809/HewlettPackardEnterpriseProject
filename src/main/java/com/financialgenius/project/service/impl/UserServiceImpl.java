@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.financialgenius.project.dao.impl.UserDaoImpl;
 import com.financialgenius.project.model.UserModel;
 import com.financialgenius.project.model.WalletModel;
+import com.financialgenius.project.service.IndexService;
 import com.financialgenius.project.service.UserService;
 
 @Service

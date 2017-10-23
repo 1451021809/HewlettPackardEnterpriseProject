@@ -24,5 +24,11 @@
 		<action name="addBankCard" class="WalletAction" method="addBankCard">
 			<result name="addSuccess">/user/wallet.jsp</result>
 		</action>
+		<action name="Recharge" class="WalletAction" method="Recharge">
+			<result name="Success">/user/wallet.jsp</result>
+		</action>
+		<action name="Withdrawals" class="WalletAction" method="Withdrawals">
+			<result name="Success">/user/wallet.jsp</result>
+		</action>
 	</package>
 </struts>

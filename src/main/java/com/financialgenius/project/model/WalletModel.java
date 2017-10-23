@@ -38,7 +38,7 @@ public class WalletModel {
 	private Double totalProfit;
 
 	@OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "user_id", updatable = false)
 	private UserModel users;
 
 	public Long getId() {
