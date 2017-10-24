@@ -28,6 +28,12 @@ public class ShopmageServiceImpl implements ShopmageService {
 		return shopmageDaoImpl.getOrder();
 	}
 
+	
+	@Override
+	public List<FundModel> getFundName(String username) {
+		
+		return shopmageDaoImpl.getFundName(username);
+	}
 	/**
 	 * 删除
 	 */
@@ -56,5 +62,7 @@ public class ShopmageServiceImpl implements ShopmageService {
 	public void addFund(FundModel fund) {
 		shopmageDaoImpl.addFund(fund);
 	}
+
+	
 
 }

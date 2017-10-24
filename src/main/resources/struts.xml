@@ -5,7 +5,7 @@
 
 <struts>
 	<include file="struts-tfq.xml"></include>
-	<package name="default" namespace="/" extends="struts-default">
+	<package name="index" namespace="/" extends="json-default">
 
 		<action name="user_*" class="LoginAndRegisterAction" method="{1}">
 			<result name="login">/user/person.jsp</result>
@@ -78,6 +78,9 @@
 		</action>
 		<action name="ListMoney" class="shopmageAction" method="queryMoney">
 			<result name="listMoney">/admin/fund_money.jsp</result>
+		</action>
+		<action name="queryKey" class="shopmageAction" method="queryFundName">
+			<result name="list">/admin/shop_mange.jsp</result>
 		</action>
 
 	</package>

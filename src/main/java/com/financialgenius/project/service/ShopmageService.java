@@ -13,6 +13,9 @@ public interface ShopmageService {
 	
 	List<OrderModel> getOrder();
 	
+	List<FundModel> getFundName(String username);
+	
+	
 	/**
 	 * 删除商品
 	 * @param fund
