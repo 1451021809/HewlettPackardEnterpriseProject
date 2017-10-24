@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<form action="Login" onsubmit="return login()" method="post">
+	<form action="user_Login" onsubmit="return login()" method="post">
 		<div class="bg">
 			<div class="div_right">
 				<div class="div_right_top"></div>
