@@ -32,9 +32,37 @@
 		<action name="Withdrawals" class="WalletAction" method="Withdrawals">
 			<result name="Success">/user/wallet.jsp</result>
 		</action>
-		
+
 		<action name="Index" class="IndexAction" method="Index">
 			<result name="success">/index.jsp</result>
+		</action>
+
+		<action name="List" class="shopmageAction" method="queryFund">
+			<result name="list">/admin/shop_mange.jsp</result>
+		</action>
+		<action name="Delete" class="shopmageAction" method="deleteFund">
+			<result name="delete">/admin/shop_mange.jsp</result>
+		</action>
+		<action name="Update" class="shopmageAction" method="to_updateFund">
+			<result name="update">/admin/alter_fund.jsp</result>
+		</action>
+		<action name="UpdateDo" class="shopmageAction" method="do_updateFund">
+			<result name="list">/admin/shop_mange.jsp</result>
+		</action>
+		<action name="Save" class="shopmageAction" method="to_addFund">
+			<result name="save">/admin/add_fund.jsp</result>
+		</action>
+		<action name="SaveDo" class="shopmageAction" method="do_addFund">
+			<result name="list">/admin/shop_mange.jsp</result>
+		</action>
+		<action name="Count" class="shopmageAction" method="to_count">
+			<result name="count">/admin/fund_number.jsp</result>
+		</action>
+		<action name="ListOrder" class="shopmageAction" method="queryOrder">
+			<result name="listOrder">/admin/fund_user_number.jsp</result>
+		</action>
+		<action name="ListMoney" class="shopmageAction" method="queryMoney">
+			<result name="listMoney">/admin/fund_money.jsp</result>
 		</action>
 	</package>
 </struts>
