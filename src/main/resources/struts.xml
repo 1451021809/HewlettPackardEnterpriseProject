@@ -38,6 +38,7 @@
 		</action>
 
 
+
 		<action name="UserMange_*" class="UserMangeAction" method="{1}">
 			<result name="alterUsername">/user/person.jsp</result>
 			<result name="succesAlterUsername">/user/alterUsername.jsp</result>
@@ -45,5 +46,12 @@
 			<result name="alterPassword">/user/succesAlterPassword.html</result>
 		</action>
 
+
+		<action name="Index" class="IndexAction" method="Index">
+			<result name="success">/index.jsp</result>
+			<result type="json"></result>
+		</action>
+
 	</package>
+
 </struts>
