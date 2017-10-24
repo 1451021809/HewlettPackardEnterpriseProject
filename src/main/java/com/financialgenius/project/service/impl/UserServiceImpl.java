@@ -12,7 +12,6 @@ import com.financialgenius.project.model.RolesModel;
 import com.financialgenius.project.model.TransactionModel;
 import com.financialgenius.project.model.UserModel;
 import com.financialgenius.project.model.WalletModel;
-import com.financialgenius.project.service.IndexService;
 import com.financialgenius.project.service.UserService;
 
 @Service
