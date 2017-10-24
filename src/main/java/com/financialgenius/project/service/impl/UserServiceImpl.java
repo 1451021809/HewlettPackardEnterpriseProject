@@ -1,4 +1,4 @@
-package com.financialgenius.project.service.impl;
+﻿package com.financialgenius.project.service.impl;
 
 import java.util.List;
 import java.util.Set;
@@ -14,6 +14,8 @@ import com.financialgenius.project.model.ProfitModel;
 import com.financialgenius.project.model.RolesModel;
 import com.financialgenius.project.model.TransactionModel;
 import com.financialgenius.project.model.UserModel;
+
+import com.financialgenius.project.model.WalletModel;
 import com.financialgenius.project.service.UserService;
 
 @Service
