@@ -44,4 +44,7 @@ public interface UserService {
 
 	// 获取总数
 	int TransactionCount();
+
+	// 获取用户角色
+	int getRoles(UserModel user);
 }

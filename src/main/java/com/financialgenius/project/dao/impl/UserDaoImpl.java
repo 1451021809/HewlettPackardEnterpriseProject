@@ -1,6 +1,8 @@
 package com.financialgenius.project.dao.impl;
 
 import java.util.List;
+import java.util.Set;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -119,5 +121,13 @@ public class UserDaoImpl implements UserDao {
 
 		});
 		return list;
+	}
+
+	// 获取角色
+	@Override
+	public List<UserModel> getRoles(UserModel user) {
+		String sql = "from UserModel where id=?";
+		List<UserModel> model = (List<UserModel>) baseDao.getHibernateTemplate().find(sql, user.getId());
+		return model;
 	}
 }

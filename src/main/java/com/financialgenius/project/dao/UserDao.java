@@ -46,4 +46,7 @@ public interface UserDao {
 	// 获取总数
 	int TransactionCount();
 
+	// 获取角色
+	List<UserModel> getRoles(UserModel user);
+
 }
