@@ -3,14 +3,19 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <head>
     <meta charset="UTF-8">
     <title>基金购买金额</title>
-    <link rel="stylesheet" type="text/css" href="css/admin.css">
-    <link rel="stylesheet" type="text/css" href="css/adminStyle.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/adminStyle.css">
 </head>
 
 <body>
@@ -21,7 +26,7 @@
     <div class="body">
         <div class="left">
           	<ul class="left-img">
-				<span><li class="left-img"><img src="images/default_photo.jpg"></li></span>
+				<span><li class="left-img"><img src="<%=basePath%>/images/default_photo.jpg"></li></span>
 			</ul>
 			<div class="ul-div">
 				<ul>

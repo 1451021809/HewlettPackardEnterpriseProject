@@ -2,12 +2,16 @@
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <head>
 <meta charset="UTF-8">
 <title>站长统计</title>
-<link rel="stylesheet" type="text/css" href="css/admin.css">
-<link rel="stylesheet" type="text/css" href="css/adminStyle.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/admin.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/adminStyle.css">
 </head>
 
 <body>
@@ -20,7 +24,7 @@
 		<div class="left">
 			<ul class="left-img">
 				<span><li class="left-img"><img
-						src="images/default_photo.jpg"></li></span>
+						src="<%=basePath%>/images/default_photo.jpg"></li></span>
 			</ul>
 			<div class="ul-div">
 				<ul>
@@ -55,14 +59,6 @@
 		</div>
 		<div class="right">
 			<h1>用户访问总次数：</h1>
-
-
-			<%
-				String path = request.getContextPath();
-				String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-						+ path + "/";
-			%>
-
 			<jsp:useBean id="count"
 				class="com.financialgenius.project.model.CountUser" scope="session"></jsp:useBean>
 			<jsp:useBean id="count2"
@@ -71,9 +67,6 @@
 
 			您的访问次数：<jsp:getProperty name="count" property="count" /><br>
 			总共的访问次数：<jsp:getProperty name="count2" property="count" />
-
-
-
 
 		</div>
 	</div>

@@ -3,12 +3,16 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
-
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <head>
 <meta charset="UTF-8">
 <title>资金管理</title>
-<link rel="stylesheet" type="text/css" href="css/admin.css">
-<link rel="stylesheet" type="text/css" href="css/adminStyle.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/admin.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/adminStyle.css">
 </head>
 
 <body>
@@ -20,7 +24,7 @@
 		<div class="left">
 			<ul class="left-img">
 				<span><li class="left-img"><img
-						src="images/default_photo.jpg"></li></span>
+						src="<%=basePath%>/images/default_photo.jpg"></li></span>
 			</ul>
 			<div class="ul-div">
 				<ul>
