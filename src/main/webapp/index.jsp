@@ -3,19 +3,25 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
 
+
 <head>
     <meta charset="UTF-8">
     <title>ManageMoney</title>
     <script type="text/javascript" href="js/lib.min.js.下载"></script>
+
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/index.css">
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/global.css">
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/headAndTail.css">
+
+  
+
 </head>
 
 <body>
@@ -24,7 +30,11 @@
             <div class="head">
                 <h1 class="logo">
 					<a href="javaScript:void(0)">
+
 						<img src="<%=basePath%>images/logo.png">
+
+						<img src="images/logo.png">
+
 					</a>
 				</h1>
                 <div class="main-nav">
@@ -33,7 +43,11 @@
                     <a class="nav-index" href="javaScript:void(0)">关于我们</a>
                     <a class="text-login" href="login01.html">
 						<span class="avata">
+
 							<img src="<%=basePath%>images/header_default.jpg">
+
+							<img src="images/header_default.jpg">
+
 						</span>
 					登录</a>
                 </div>
@@ -44,7 +58,11 @@
             <div class="banner">
                 <ul id="focus_list_box">
                     <li style="z-index: 109">
+
                         <div style="background-image:url(<%=basePath%>images/bannerimage.png); " class="image-warp">
+
+                        <div style="background-image:url(images/bannerimage.png); " class="image-warp">
+
                             <a href="javaScript:void(0)"></a>
                         </div>
                     </li>
@@ -173,7 +191,11 @@
                 <div class="cooperation-context">
                     <div class="organization"><strong>合作金融机构</strong></div>
                     <hr>
+
                     <img src="<%=basePath%>images/organization.png">
+
+                    <img src="images/organization.png">
+
                 </div>
             </div>
         </div>
