@@ -190,12 +190,8 @@ public class UserModel {
 		this.bankCardModels = bankCardModels;
 	}
 
-	@Override
-	public String toString() {
-		return "UserModel [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
-				+ ", status=" + status + ", email=" + email + ", createDate=" + createDate + "]";
-	}
-
+	
+	
 	public UserModel() {
 		super();
 	}
@@ -226,5 +222,18 @@ public class UserModel {
 		this.email = email;
 		this.createDate = createDate;
 	}
+	
+	@Override
+	public String toString() {
+		return "UserModel [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
+				+ ", status=" + status + ", email=" + email + ", createDate=" + createDate + "]";
+	}
+	
+	public String toStringOrders() {
+		return "UserModel [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
+				+ ", status=" + status + ", email=" + email + ", createDate=" + createDate + ", orders=" + orders + "]";
+	}
+
+	
 
 }

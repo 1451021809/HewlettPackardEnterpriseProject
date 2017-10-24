@@ -75,7 +75,7 @@
 						</div>
 						<div class="earnings">
 							<br> <span>昨日固定收益(元)</span> <br> <span>
-								${profitMoney } </span> <br> <span>累计固定收益(元)</span> <br> <span><c:forEach
+								${profitMoney} </span> <br> <span>累计固定收益(元)</span> <br> <span><c:forEach
 									items="${walletList }" var="list">
 									${list.totalProfit }
 									</c:forEach></span>

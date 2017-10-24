@@ -36,5 +36,20 @@
 		<action name="Index" class="IndexAction" method="Index">
 			<result name="success">/index.jsp</result>
 		</action>
+		
+		<action name="findMoneyDetails" class="fundMangeAction" method="findMoneyDetails">
+			<result name="findMoneyDetails">/admin/fund_mange.jsp</result>
+		</action>
+		
+		<action name="findStatistics" class="statisticsAction" method="findStatistics">
+			<result name="findStatistics">/admin/statistics.jsp</result>
+		</action>
+		
+		<action name="findUnds" class="undsAction" method="findUnds">
+			<result name="finUnds">/user/unds.jsp</result>
+		</action>
+		<action name="getMyFund" class="undsAction" method="getMyFund">
+			<result name="getMyFund">/user/unds.jsp</result>
+		</action>
 	</package>
 </struts>
