@@ -31,12 +31,12 @@
 						<a class="nav-index" href="javaScript:void(0)">首页</a> <a
 							class="nav-index" href="javaScript:void(0)">余额宝</a> <a
 							class="nav-index" href="javaScript:void(0)">关于我们</a> <a
-							class="text-login" href="login01.html"> <c:if test="${empty isLogin }">
+							class="text-login" href="login01.html"> <c:if
+								test="${empty isLogin }">
 								<span class="avata"> <img
 									src="<%=basePath%>/images/header_default.jpg">
 								</span> 登录
-						</c:if>
-						<c:if test="${not empty isLogin }">
+						</c:if> <c:if test="${not empty isLogin }">
 								<span class="avata"> <img
 									src="<%=basePath%>/images/header_default.jpg">
 								</span> 我的信息
