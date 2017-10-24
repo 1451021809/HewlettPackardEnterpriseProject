@@ -1,5 +1,6 @@
 package com.financialgenius.project.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -22,9 +23,8 @@ public class UserDaoImpl implements UserDao {
 	private BaseDao baseDao;
 
 	@Override
-	public boolean deleteUser(UserModel user) {
+	public void deleteUser(UserModel user) {
 		baseDao.getHibernateTemplate().delete(user);
-		return true;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -119,5 +119,38 @@ public class UserDaoImpl implements UserDao {
 
 		});
 		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<UserModel> getUsers() {
+		return (List<UserModel>) baseDao.getHibernateTemplate().find("from UserModel");
+	}
+
+	public UserModel getUser(UserModel userModel) {
+		return baseDao.getHibernateTemplate().get(UserModel.class, userModel.getId());
+	}
+
+	@Override
+	public void updateUsers(UserModel user) {
+		baseDao.getHibernateTemplate().saveOrUpdate(user);
+	}
+
+	@Override
+	public boolean freezeUsers(UserModel user) {
+		baseDao.getHibernateTemplate().update(user);
+		return true;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<UserModel> dimGetUsers(String name) {
+		return (List<UserModel>) baseDao.getHibernateTemplate().find("from UserModel where name like %" + name + "%");
+	}
+
+	@Override
+	public void addUsers(UserModel user) {
+		user.setCreateDate(new Date());
+		baseDao.getHibernateTemplate().save(user);
 	}
 }

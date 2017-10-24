@@ -20,6 +20,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.criteria.CriteriaBuilder.In;
 
 import org.hibernate.annotations.Type;
 
@@ -35,7 +36,7 @@ public class UserModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
-	private Long id;
+	private int id;
 
 	@Column(name = "user_name")
 	private String name;
@@ -94,11 +95,11 @@ public class UserModel {
 		this.orders = orders;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -200,7 +201,7 @@ public class UserModel {
 		super();
 	}
 
-	public UserModel(Long id) {
+	public UserModel(int id) {
 		super();
 		this.id = id;
 	}
@@ -215,7 +216,7 @@ public class UserModel {
 		this.createDate = createDate;
 	}
 
-	public UserModel(Long id, String name, String username, String password, int status, String email,
+	public UserModel(int id, String name, String username, String password, int status, String email,
 			Date createDate) {
 		super();
 		this.id = id;

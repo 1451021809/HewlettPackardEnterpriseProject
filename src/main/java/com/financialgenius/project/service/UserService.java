@@ -44,4 +44,16 @@ public interface UserService {
 
 	// 获取总数
 	int TransactionCount();
+
+	List<UserModel> getUsers();
+
+	void updateUsers(UserModel user);
+
+	List<UserModel> dimGetUsers(String name);
+
+	void freezeUsers(UserModel user);
+
+	void addUsers(UserModel user);
+
+	void deleteUser(UserModel user);
 }

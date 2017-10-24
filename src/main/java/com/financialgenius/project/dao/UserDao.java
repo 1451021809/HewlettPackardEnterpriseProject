@@ -20,7 +20,7 @@ public interface UserDao {
 	 */
 	UserModel isLogin(UserModel user);
 
-	boolean deleteUser(UserModel user);
+	void deleteUser(UserModel user);
 
 	// 注册（保存）
 	void register(UserModel userModel);
@@ -45,5 +45,15 @@ public interface UserDao {
 
 	// 获取总数
 	int TransactionCount();
+
+	List<UserModel> getUsers();
+
+	void updateUsers(UserModel user);
+
+	boolean freezeUsers(UserModel user);
+
+	List<UserModel> dimGetUsers(String name);
+
+	void addUsers(UserModel user);
 
 }

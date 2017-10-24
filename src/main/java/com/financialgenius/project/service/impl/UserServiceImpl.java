@@ -67,15 +67,50 @@ public class UserServiceImpl implements UserService {
 
 		return userDaoImpl.getTransactionModel(transactionModel);
 	}
+
 	// 分页查询交易表
 	@Override
 	public List<TransactionModel> findAllByPage(int pageNo, int pageSize) {
 		return userDaoImpl.findAllByPage(pageNo, pageSize);
 	}
+
 	// 获取总条数
 	@Override
 	public int TransactionCount() {
 		return userDaoImpl.TransactionCount();
 	}
 
+	public UserModel getUser(UserModel user) {
+		return userDaoImpl.getUser(user);
+	}
+
+	@Override
+	public List<UserModel> getUsers() {
+		return userDaoImpl.getUsers();
+	}
+
+	@Override
+	public void updateUsers(UserModel user) {
+		userDaoImpl.updateUsers(user);
+	}
+
+	@Override
+	public List<UserModel> dimGetUsers(String name) {
+		return userDaoImpl.dimGetUsers(name);
+	}
+
+	@Override
+	public void freezeUsers(UserModel user) {
+		userDaoImpl.freezeUsers(user);
+	}
+
+	@Override
+	public void addUsers(UserModel user) {
+		userDaoImpl.addUsers(user);
+	}
+
+	@Override
+	public void deleteUser(UserModel user) {
+		userDaoImpl.deleteUser(user);
+	}
 }
