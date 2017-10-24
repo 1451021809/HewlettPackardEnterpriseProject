@@ -48,12 +48,14 @@
 					<ul>
 						<span><li class="left-img"><img
 								src="../images/default_photo.jpg"></li></span>
-						<li><a href="person.html">个人信息管理</a><>
-						<li><a href="wallet.html">我的钱包</a><>
-						<li><a href="unds.html">我的基金</a><>
+						<li><a href="person.html">个人信息管理</a><li>
+						<li><a href="wallet.html">我的钱包</a><li>
+						<li><a href="unds.html">我的基金</a><li>
+
 						<li><a href="getBill?id=${isLogin.id}
-						">账单</a><>
-						<li><a href="getMessage?id=${isLogin.id}">消息推送</a><>
+						">账单</a><li>
+						<li><a href="getMessage?id=${isLogin.id}">消息推送</a></li>
+
 					</ul>
 				</div>
 				<div class="right">
@@ -71,12 +73,14 @@
 
 						<table>
 							<tr>
+
 								<td>交易ID</td>
 								<td>交易类型</td>
 								<td>交易金额</td>
 								<td>交易时间</td>
-
+								
 							</tr>
+
 							<c:forEach items="${transactionModels}" var="transaction"
 								varStatus="status">
 								<tr>
@@ -101,9 +105,7 @@
 									</c:if> <c:if test="${pageno>=totalpage}">
 										<a href="#">下一页</a>
 									</c:if> &nbsp;&nbsp; <a href="getBill?page.pageNo=${totalpage}">尾页</a>
-								</td>
-							</tr>
-						</div>
+						</table>
 
 					</div>
 				</div>

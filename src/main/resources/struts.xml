@@ -4,38 +4,92 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<package name="default" namespace="/" extends="struts-default">
-
+	<include file="struts-tfq.xml"></include>
+	<package name="index" namespace="/" extends="json-default">
 		<action name="*" class="LoginAndRegisterAction" method="{1}">
 			<result name="login">/index.jsp</result>
+		</action>
+		<action name="Login" class="LoginAndRegisterAction" method="Login">
+			<result name="login">/user/person.jsp</result>
+
 			<result name="noLogin">/user/login.jsp</result>
-			<result name="register">/user/register.jsp</result>
-			<result name="bill">/user/bill.jsp</result>
-			<result name="message">/user/notification.jsp</result>
+			<result name="admin">/admin/user_mange.jsp</result>
 		</action>
 
 		<action name="Wallet" class="WalletAction" method="Wallet">
 			<result name="wallet">/user/wallet.jsp</result>
 			<result name="noLogin">/user/login.jsp</result>
 		</action>
+
 		<action name="deleteBankCard" class="WalletAction" method="deleteBankCard">
 			<result name="deleteSuccess">/user/wallet.jsp</result>
 		</action>
+
 		<action name="addBankCard01" class="WalletAction" method="addBankCard01">
 			<result name="add">/user/addBankCard.jsp</result>
 		</action>
+
 		<action name="addBankCard" class="WalletAction" method="addBankCard">
 			<result name="addSuccess">/user/wallet.jsp</result>
 		</action>
+
 		<action name="Recharge" class="WalletAction" method="Recharge">
 			<result name="Success">/user/wallet.jsp</result>
 		</action>
+
 		<action name="Withdrawals" class="WalletAction" method="Withdrawals">
 			<result name="Success">/user/wallet.jsp</result>
 		</action>
 
+		<action name="UserMange_*" class="UserMangeAction" method="{1}">
+			<result name="alterUsername">/user/person.jsp</result>
+			<result name="succesAlterUsername">/user/alterUsername.jsp</result>
+			<result name="succesAlterPassword">/user/alterPassword.jsp</result>
+			<result name="alterPassword">/user/succesAlterPassword.html</result>
+		</action>
+
 		<action name="Index" class="IndexAction" method="Index">
 			<result name="success">/index.jsp</result>
+			<result type="json"></result>
+		</action>
+		<action name="findMoneyDetails" class="fundMangeAction" method="findMoneyDetails">
+			<result name="findMoneyDetails">/admin/fund_mange.jsp</result>
+		</action>
+
+		<action name="findStatistics" class="statisticsAction" method="findStatistics">
+			<result name="findStatistics">/admin/statistics.jsp</result>
+		</action>
+
+		<action name="findUnds" class="undsAction" method="findUnds">
+			<result name="finUnds">/user/unds.jsp</result>
+		</action>
+
+		<action name="List" class="shopmageAction" method="queryFund">
+			<result name="list">/admin/shop_mange.jsp</result>
+		</action>
+		<action name="Delete" class="shopmageAction" method="deleteFund">
+			<result name="delete">/admin/shop_mange.jsp</result>
+		</action>
+		<action name="Update" class="shopmageAction" method="to_updateFund">
+			<result name="update">/admin/alter_fund.jsp</result>
+		</action>
+		<action name="UpdateDo" class="shopmageAction" method="do_updateFund">
+			<result name="list">/admin/shop_mange.jsp</result>
+		</action>
+		<action name="Save" class="shopmageAction" method="to_addFund">
+			<result name="save">/admin/add_fund.jsp</result>
+		</action>
+		<action name="SaveDo" class="shopmageAction" method="do_addFund">
+			<result name="list">/admin/shop_mange.jsp</result>
+		</action>
+		<action name="Count" class="shopmageAction" method="to_count">
+			<result name="count">/admin/fund_number.jsp</result>
+		</action>
+		<action name="ListOrder" class="shopmageAction" method="queryOrder">
+			<result name="listOrder">/admin/fund_user_number.jsp</result>
+		</action>
+		<action name="ListMoney" class="shopmageAction" method="queryMoney">
+			<result name="listMoney">/admin/fund_money.jsp</result>
 		</action>
 		
 		<action name="getMessage" class="LoginAndRegisterAction" method="getMessage">
@@ -45,4 +99,5 @@
 			<result name="bill">/user/bill.jsp</result>
 		</action>
 	</package>
+
 </struts>

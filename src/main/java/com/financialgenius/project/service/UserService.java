@@ -35,4 +35,8 @@ public interface UserService {
 
 	// 获取总条数（分页查询）
 	int TransactionCount(Long id);
+
+	// 获取用户角色
+	int getRoles(UserModel user);
+
 }

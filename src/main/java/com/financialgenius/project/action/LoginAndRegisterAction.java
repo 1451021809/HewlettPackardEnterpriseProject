@@ -41,9 +41,14 @@ public class LoginAndRegisterAction {
 		if (isLogin == null) {
 			return "noLogin";
 		} else {
-			// 保存用户登录信息
-			ServletActionContext.getRequest().getSession().setAttribute("isLogin", isLogin);
-			return "login";
+			if (impl.getRoles(isLogin) == 1) {
+				// 保存用户登录信息
+				ServletActionContext.getRequest().getSession().setAttribute("isLogin", isLogin);
+				return "login";
+			} else {
+				return "admin";
+			}
+
 		}
 
 	}
@@ -94,7 +99,7 @@ public class LoginAndRegisterAction {
 		ServletActionContext.getRequest().getSession().setAttribute("totalpage", totalpage);
 		return "message";
 	}
-
+	// 交易表分页查询（消息推送）
 	public String getBill() {
 		// 获取当前用户登录的Id
 		Long id = isLogin.getId();

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isELIgnored="false"%>
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -32,7 +32,9 @@
 						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
 						class="nav-index" href="javaScript:void(0)">关于我们</a> <a
 						class="text-login" href="login01.html"> <span class="avata">
+
 							<img src="<%=basePath%>/images/header_default.jpg">
+							
 					</span> 登录
 					</a>
 				</div>
@@ -44,20 +46,25 @@
 			<div class="bg-body">
 				<div class="left">
 					<ul>
-						<span><li class="left-img"><img
-								src="<%=basePath%>/images/default_photo.jpg"></li></span>
+						<span><li class="left-img">
+						<img src="<%=basePath%>/images/default_photo.jpg"></li></span>
 						<li><a href="person.html">个人信息管理</a></li>
 						<li><a href="wallet.html">我的钱包</a></li>
 						<li><a href="unds.html">我的基金</a></li>
 						<li><a href="getBill?id=${isLogin.id}">账单</a></li>
 						<li><a href="getMessage?id=${isLogin.id}">消息推送</a></li>
+
 					</ul>
 				</div>
 				<div class="right">
 					<div class="balance">
 						<span><h2>推送</h2></span>
 						<div class="icon">
+<<<<<<< HEAD
 							<img src="<%=basePath%>/images/money.png">
+=======
+							<img src="../images/money.png">
+>>>>>>> 607ba00da5679bc798f8f83f3db1de46d831233e
 						</div>
 						<div class="deal">
 							<a href="" class="colo">历史消息</a>
@@ -65,6 +72,7 @@
 					</div>
 					<div class="tab">
 						<c:forEach items="${transactionModels}" var="transaction">
+<<<<<<< HEAD
 							<div style="font-size: 25px;">您于&nbsp;&nbsp; &nbsp;
 								${transaction.createDate} ${transaction.type}&nbsp; &nbsp;
 								&nbsp; ${transaction.money}&nbsp; 元</div>
@@ -82,6 +90,23 @@
 									</c:if> <c:if test="${pageno>=totalpage}">
 										<a href="#">下一页</a>
 									</c:if> &nbsp;&nbsp; <a href="getMessage?page.pageNo=${totalpage}">尾页</a>
+=======
+							<div style="font-size: 25px;">您于&nbsp;&nbsp;&nbsp;&nbsp;${transaction.createDate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${transaction.type}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${transaction.money}元</div>
+						</c:forEach>
+						<div style="margin-left: 131px; margin-top: 250px;">
+							<tr>
+								<td colspan="7" rowspan="2">共${count}条记录&nbsp;&nbsp;共${totalpage}页/当前第${pageno}页&nbsp;&nbsp;
+									<a href="find?page.pageNo=1">首页</a>&nbsp;&nbsp; <c:if
+										test="${pageno>1}">
+										<a href="find?page.pageNo=${pageno-1}">上一页</a>
+									</c:if> <c:if test="${pageno<=1}">
+										<a href="#">上一页</a>
+									</c:if> &nbsp;&nbsp; <c:if test="${pageno<totalpage}">
+										<a href="find?page.pageNo=${pageno+1}">下一页</a>
+									</c:if> <c:if test="${pageno>=totalpage}">
+										<a href="#">下一页</a>
+									</c:if> &nbsp;&nbsp; <a href="find?page.pageNo=${totalpage}">尾页</a>
+>>>>>>> 607ba00da5679bc798f8f83f3db1de46d831233e
 								</td>
 							</tr>
 						</div>
