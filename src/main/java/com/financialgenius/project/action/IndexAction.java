@@ -25,7 +25,7 @@ public class IndexAction {
 		fundList = impl.fundModel();
 		return "success";
 	}
-
+	
 	public List<FundModel> getFundList() {
 		return fundList;
 	}

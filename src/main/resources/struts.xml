@@ -6,13 +6,14 @@
 <struts>
 	<package name="default" namespace="/" extends="struts-default">
 
-		<action name="Login" class="LoginAndRegisterAction" method="Login">
+		<action name="*" class="LoginAndRegisterAction" method="{1}">
 			<result name="login">/index.jsp</result>
 			<result name="noLogin">/user/login.jsp</result>
 			<result name="register">/user/register.jsp</result>
 			<result name="bill">/user/bill.jsp</result>
 			<result name="message">/user/notification.jsp</result>
 		</action>
+
 		<action name="Wallet" class="WalletAction" method="Wallet">
 			<result name="wallet">/user/wallet.jsp</result>
 			<result name="noLogin">/user/login.jsp</result>
@@ -32,9 +33,16 @@
 		<action name="Withdrawals" class="WalletAction" method="Withdrawals">
 			<result name="Success">/user/wallet.jsp</result>
 		</action>
-		
+
 		<action name="Index" class="IndexAction" method="Index">
 			<result name="success">/index.jsp</result>
+		</action>
+		
+		<action name="getMessage" class="LoginAndRegisterAction" method="getMessage">
+			<result name="message">/user/notification.jsp</result>
+		</action>
+		<action name="getBill" class="LoginAndRegisterAction" method="getBill">
+			<result name="bill">/user/bill.jsp</result>
 		</action>
 	</package>
 </struts>
