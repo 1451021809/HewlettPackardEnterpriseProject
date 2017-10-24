@@ -4,13 +4,25 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<package name="default" namespace="/" extends="struts-default">
+	<package name="default" namespace="/" extends="json-default">
 
 		<action name="Login" class="LoginAndRegisterAction" method="Login">
 			<result name="login">/index.jsp</result>
 			<result name="noLogin">/user/login.jsp</result>
+		</action>
+		<action name="register1" class="LoginAndRegisterAction" method="register1">
 			<result name="register">/user/register.jsp</result>
+		</action>
+		<action name="queryUser" class="LoginAndRegisterAction" method="queryUser">
+			<result name="register">/user/register.jsp</result>
+			<result name="login">/index.jsp</result>
+		</action>
+
+		<action name="getTable" class="LoginAndRegisterAction" method="getTable">
 			<result name="bill">/user/bill.jsp</result>
+		</action>
+
+		<action name="find" class="LoginAndRegisterAction" method="find">
 			<result name="message">/user/notification.jsp</result>
 		</action>
 		<action name="Wallet" class="WalletAction" method="Wallet">
@@ -32,9 +44,9 @@
 		<action name="Withdrawals" class="WalletAction" method="Withdrawals">
 			<result name="Success">/user/wallet.jsp</result>
 		</action>
-		
 		<action name="Index" class="IndexAction" method="Index">
 			<result name="success">/index.jsp</result>
+			<result type="json"></result>
 		</action>
 		
 		<action name="findMoneyDetails" class="fundMangeAction" method="findMoneyDetails">
@@ -52,4 +64,5 @@
 			<result name="getMyFund">/user/unds.jsp</result>
 		</action>
 	</package>
+
 </struts>

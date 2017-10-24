@@ -60,7 +60,7 @@ public class WalletAction {
 			profitMoney = walletServiceImpl.profit(isLogin);
 			// 查询账户绑定银行卡
 			bankCardList = walletServiceImpl.bankCard(isLogin);
-			System.out.println(walletList.toString());
+			
 		}
 		return "wallet";
 	}

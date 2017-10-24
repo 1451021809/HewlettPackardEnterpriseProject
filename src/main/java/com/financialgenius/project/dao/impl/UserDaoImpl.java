@@ -33,7 +33,7 @@ public class UserDaoImpl implements UserDao {
 		String sql = "from UserModel where username=? and password=? and status=?";
 		List<UserModel> list = (List<UserModel>) baseDao.getHibernateTemplate().find(sql, user.getUsername(),
 				user.getPassword(), 1);
-		System.out.println(list.toString());
+		
 		if (list != null && list.size() > 0) {
 			return list.get(0);
 		}

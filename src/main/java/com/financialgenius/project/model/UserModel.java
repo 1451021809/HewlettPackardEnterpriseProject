@@ -228,12 +228,4 @@ public class UserModel {
 		return "UserModel [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
 				+ ", status=" + status + ", email=" + email + ", createDate=" + createDate + "]";
 	}
-	
-	public String toStringOrders() {
-		return "UserModel [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
-				+ ", status=" + status + ", email=" + email + ", createDate=" + createDate + ", orders=" + orders + "]";
-	}
-
-	
-
 }
