@@ -10,6 +10,7 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+
 <html>
 
 <head>
@@ -29,12 +30,12 @@
 		<div class="head-warp">
 			<div class="head">
 				<h1 class="logo">
-					<a href="javaScript:void(0)"> <img
+					<a href="<%=basePath%>index.jsp"> <img
 						src="<%=basePath%>/images/logo.png">
 					</a>
 				</h1>
 				<div class="main-nav">
-					<a class="nav-index" href="javaScript:void(0)">首页</a> <a
+					<a class="nav-index" href="<%=basePath%>index.jsp">首页</a> <a
 						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
 						class="nav-index" href="javaScript:void(0)">关于我们</a>
 					<c:if test="${empty isLogin }">
@@ -45,7 +46,7 @@
 						</a>
 					</c:if>
 					<c:if test="${not empty isLogin }">
-						<a class="text-login" href="user/login.jsp"> <span
+						<a class="text-login" href="user/person.jsp"> <span
 							class="avata"> <img
 								src="<%=basePath%>/images/header_default.jpg">
 						</span> 我的信息
@@ -138,7 +139,7 @@
 							</td>
 							<td id="profit0">万份收益</td>
 							<td>随存随取</td>
-							<td><a href="pay.html"> <input class="input"
+							<td><a href="Buy?fundModel.id=1"> <input class="input"
 									type="button" value="买入">
 							</a></td>
 						</tr>
@@ -149,7 +150,7 @@
 							</td>
 							<td id="profit1">万份收益</td>
 							<td>随存随取</td>
-							<td><a href="pay.html"> <input class="input"
+							<td><a href="Buy?fundModel.id=2"> <input class="input"
 									type="button" value="买入">
 							</a></td>
 						</tr>
@@ -159,7 +160,7 @@
 							</td>
 							<td id="profit2">万份收益</td>
 							<td>随存随取</td>
-							<td><a href="pay.html"> <input class="input"
+							<td><a href="Buy?fundModel.id=3"> <input class="input"
 									type="button" value="买入">
 							</a></td>
 						</tr>
@@ -169,7 +170,7 @@
 							</td>
 							<td id="profit3">万份收益</td>
 							<td>随存随取</td>
-							<td><a href="pay.html"> <input class="input"
+							<td><a href="Buy?fundModel.id=4"> <input class="input"
 									type="button" value="买入">
 							</a></td>
 						</tr>
@@ -179,7 +180,7 @@
 							</td>
 							<td id="profit4">万份收益</td>
 							<td>随存随取</td>
-							<td><a href="pay.html"> <input class="input"
+							<td><a href="Buy?fundModel.id=5"> <input class="input"
 									type="button" value="买入">
 							</a></td>
 						</tr>

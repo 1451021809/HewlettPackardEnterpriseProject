@@ -24,17 +24,27 @@
 		<div class="head-warp">
 			<div class="head">
 				<h1 class="logo">
-					<a href="index.html"> <img src="../images/logo.png">
+					<a href="index.html"> <img src="<%=basePath%>/images/logo.png">
 					</a>
 				</h1>
 				<div class="main-nav">
 					<a class="nav-index" href="javaScript:void(0)">首页</a> <a
 						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
-						class="nav-index" href="javaScript:void(0)">关于我们</a> <a
-						class="text-login" href="login01.html"> <span class="avata">
-							<img src="../images/header_default.jpg">
-					</span> 登录
-					</a>
+						class="nav-index" href="javaScript:void(0)">关于我们</a>
+					<c:if test="${empty isLogin }">
+						<a class="text-login" href="<%=basePath%>/user/login.jsp"> <span
+							class="avata"> <img
+								src="<%=basePath%>/images/header_default.jpg">
+						</span> 登录
+						</a>
+					</c:if>
+					<c:if test="${not empty isLogin }">
+						<a class="text-login" href="<%=basePath%>/user/person.jsp"> <span
+							class="avata"> <img
+								src="<%=basePath%>/images/header_default.jpg">
+						</span> 我的信息
+						</a>
+					</c:if>
 				</div>
 			</div>
 
@@ -45,10 +55,10 @@
 				<div class="left">
 					<ul>
 						<span><li class="left-img"><img
-								src="../images/default_photo.jpg"></li></span>
-						<li><a href="person.html">个人信息管理</a></li>
-						<li><a href="wallet.html">我的钱包</a></li>
-						<li><a href="unds.html">我的基金</a></li>
+								src="<%=basePath%>/images/default_photo.jpg"></li></span>
+						<li><a href="<%=basePath%>/user/person.jsp">个人信息管理</a></li>
+						<li><a href="Wallet">我的钱包</a></li>
+						<li><a href="getMyFund">我的基金</a></li>
 						<li><a href="bill.html">账单</a></li>
 						<li><a href="notification.html">消息推送</a></li>
 					</ul>
@@ -57,7 +67,7 @@
 					<div class="balance">
 						<span><h2>推送</h2></span>
 						<div class="icon">
-							<img src="../images/money.png">
+							<img src="<%=basePath%>/images/money.png">
 						</div>
 						<div class="deal">
 							<a href="" class="colo">历史消息</a>
