@@ -61,8 +61,10 @@
 						<li><a href="<%=basePath%>/user/person.jsp">个人信息管理</a></li>
 						<li><a href="Wallet">我的钱包</a></li>
 						<li><a href="getMyFund">我的基金</a></li>
-						<li><a href="bill.html">账单</a></li>
-						<li><a href="notification.html">消息推送</a></li>
+						<li><a href="getBill?id=${isLogin.id}
+						">账单</a><li>
+						<li><a href="getMessage?id=${isLogin.id}">消息推送</a></li>
+
 					</ul>
 				</div>
 				<div class="right">
@@ -80,39 +82,38 @@
 
 						<table>
 							<tr>
-								<td>用户名</td>
+
+								<td>交易ID</td>
 								<td>交易类型</td>
 								<td>交易金额</td>
 								<td>交易时间</td>
-
+								
 							</tr>
 							<c:forEach items="${transactionModels}" var="transaction"
 								varStatus="status">
 								<tr>
 									<%--  $stu.count：${profitModels}   --%>
-									<td>${transaction.type}</td>
+									<td>${transaction.id}</td>
 									<td>${transaction.type}</td>
 									<td>${transaction.money }</td>
 									<td>${transaction.createDate}</td>
 								</tr>
 							</c:forEach>
 						</table>
-						<div style="margin-left: 131px; margin-top: 273px;">
+						<div style="margin-left: 60px; margin-top: 60px;">
 							<tr>
 								<td colspan="7" rowspan="2">共${count}条记录&nbsp;&nbsp;共${totalpage}页/当前第${pageno}页&nbsp;&nbsp;
-									<a href="find_action?page.pageNo=1">首页</a>&nbsp;&nbsp; <c:if
+									<a href="getBill?page.pageNo=1">首页</a>&nbsp;&nbsp; <c:if
 										test="${pageno>1}">
-										<a href="find_action?page.pageNo=${pageno-1}">上一页</a>
+										<a href="getBill?page.pageNo=${pageno-1}">上一页</a>
 									</c:if> <c:if test="${pageno<=1}">
 										<a href="#">上一页</a>
 									</c:if> &nbsp;&nbsp; <c:if test="${pageno<totalpage}">
-										<a href="find_action?page.pageNo=${pageno+1}">下一页</a>
+										<a href="getBill?page.pageNo=${pageno+1}">下一页</a>
 									</c:if> <c:if test="${pageno>=totalpage}">
 										<a href="#">下一页</a>
-									</c:if> &nbsp;&nbsp; <a href="find_action?page.pageNo=${totalpage}">尾页</a>
-								</td>
-							</tr>
-						</div>
+									</c:if> &nbsp;&nbsp; <a href="getBill?page.pageNo=${totalpage}">尾页</a>
+						</table>
 
 					</div>
 				</div>

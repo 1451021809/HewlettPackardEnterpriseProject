@@ -1,9 +1,11 @@
 package com.financialgenius.project.dao.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateCallback;
@@ -69,61 +71,43 @@ public class UserDaoImpl implements UserDao {
 		return role;
 	}
 
-	@SuppressWarnings("unchecked")
-	// 查询基金表
-	@Override
-	public List<FundModel> getFundModel(FundModel fundModel) {
-
-		return (List<FundModel>) baseDao.getHibernateTemplate().find("from FundModel");
-	}
-
-	@SuppressWarnings("unchecked")
-	// 查询收益表
-	@Override
-	public List<ProfitModel> getProfitModel(ProfitModel profitModel) {
-		return (List<ProfitModel>) baseDao.getHibernateTemplate().find("from ProfitModel");
-	}
-
-	@SuppressWarnings("unchecked")
-	// 查询交易表
-	@Override
-	public List<TransactionModel> getTransactionModel(TransactionModel transactionModel) {
-		return (List<TransactionModel>) baseDao.getHibernateTemplate().find("from TransactionModel");
-	}
-
-	// 分页查询交易表
+	// 根据登录的用户查询该用户的交易数据（分页查询）
+	/**
+	 * 使用HQL语句进行分页查询操作 pageNo :当前页码 pageSize :一页显示最多条数 id:当前用户登录id
+	 * 
+	 * @return 当前页的所有记录
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<TransactionModel> findAllByPage(int pageNo, int pageSize) {
+	public List<TransactionModel> findAllByPage(int pageNo, int pageSize, Long id) {
 
 		List<TransactionModel> list = (List<TransactionModel>) baseDao.getHibernateTemplate()
 				.execute(new HibernateCallback() {
 
 					public Object doInHibernate(Session session) throws HibernateException {
-						List result = session.createQuery("from TransactionModel")
-								.setFirstResult((pageNo - 1) * pageSize).setMaxResults(pageSize).list();
-						return result;
+						String hql = "from TransactionModel where user_id = ?";
+						Query query = session.createQuery(hql);
+						query.setLong(0, id);
+						// 设定从哪一行开始，因为数据库的下标是从0开始的
+						query.setFirstResult((pageNo - 1) * pageSize);
+						// 设定每页显示的数据有多少
+						query.setMaxResults(pageSize);
+						List<TransactionModel> i = query.list();
+						return i;
 					}
 				});
 		return list;
-
 	}
 
-	// 获取总条数
+	// 获取总条数（分页查询）
 	@SuppressWarnings("unchecked")
 	@Override
-	public int TransactionCount() {
-		int list = (int) baseDao.getHibernateTemplate().execute(new HibernateCallback() {
-			public Object doInHibernate(Session session) throws HibernateException {
-				String hql = "select count(*) from TransactionModel";
-				int Count = Integer.parseInt(session.createQuery(hql).list().get(0).toString());
-				return Count;
-			}
+	public int TransactionCount(Long id) {
+		Long count = (Long) baseDao.getHibernateTemplate()
+				.find("select count(*) from TransactionModel where user_id = ? ", id).listIterator().next();
+		return count.intValue();
 
-		});
-		return list;
 	}
-
 	// 获取角色
 	@Override
 	public List<UserModel> getRoles(UserModel user) {
@@ -131,4 +115,5 @@ public class UserDaoImpl implements UserDao {
 		List<UserModel> model = (List<UserModel>) baseDao.getHibernateTemplate().find(sql, user.getId());
 		return model;
 	}
+
 }

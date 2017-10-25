@@ -91,4 +91,10 @@ public class TransactionModel {
 		this.createDate = createDate;
 	}
 
+	@Override
+	public String toString() {
+		return "TransactionModel [id=" + id + ", type=" + type + ", money=" + money + ", createDate=" + createDate
+				+ "]";
+	}
+
 }

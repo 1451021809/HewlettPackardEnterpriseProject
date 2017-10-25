@@ -25,6 +25,9 @@ public class ShopMageAction {
 	private List<PersonNumber> personNumbers;
 
 	private FundModel fundModel;
+	
+	private String fundName;
+	
 	/**
 	 * 查询基金表
 	 * @return	list
@@ -80,6 +83,15 @@ public class ShopMageAction {
 		
 		return "listMoney";
 	}
+	
+	
+	
+	public String queryFundName(){
+		
+		
+		list = impl.getFundName(fundName);
+		return "list";
+		}
 	
 	
 	
@@ -160,7 +172,15 @@ public class ShopMageAction {
 	public void setPersonNumbers(List<PersonNumber> personNumbers) {
 		this.personNumbers = personNumbers;
 	}
-	
+
+	public String getFundName() {
+		return fundName;
+	}
+
+	public void setFundName(String fundName) {
+		this.fundName = fundName;
+	}
+
 	
 	
 }

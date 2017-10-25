@@ -59,8 +59,8 @@
 						<li><a href="<%=basePath%>/user/person.jsp">个人信息管理</a></li>
 						<li><a href="Wallet">我的钱包</a></li>
 						<li><a href="getMyFund">我的基金</a></li>
-						<li><a href="bill.html">账单</a></li>
-						<li><a href="notification.html">消息推送</a></li>
+						<li><a href="getBill?id=${isLogin.id}">账单</a></li>
+						<li><a href="getMessage?id=${isLogin.id}">消息推送</a></li>
 					</ul>
 				</div>
 				<div class="right">
@@ -75,52 +75,68 @@
 					</div>
 					<div class="tab">
 						<c:forEach items="${transactionModels}" var="transaction">
-							<div style="font-size: 25px;">您于&nbsp;&nbsp;&nbsp;&nbsp;${transaction.createDate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${transaction.type}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${transaction.money}元</div>
+							<div style="font-size: 25px;">您于&nbsp;&nbsp; &nbsp;
+								${transaction.createDate} ${transaction.type}&nbsp; &nbsp;
+								&nbsp; ${transaction.money}&nbsp; 元</div>
 						</c:forEach>
-						<div style="margin-left: 131px; margin-top: 250px;">
+						<div style="left: 40px; margin-top: 160px;">
 							<tr>
 								<td colspan="7" rowspan="2">共${count}条记录&nbsp;&nbsp;共${totalpage}页/当前第${pageno}页&nbsp;&nbsp;
-									<a href="find?page.pageNo=1">首页</a>&nbsp;&nbsp; <c:if
+									<a href="getMessage?page.pageNo=1">首页</a>&nbsp;&nbsp; <c:if
 										test="${pageno>1}">
-										<a href="find?page.pageNo=${pageno-1}">上一页</a>
+										<a href="getMessage?page.pageNo=${pageno-1}">上一页</a>
 									</c:if> <c:if test="${pageno<=1}">
 										<a href="#">上一页</a>
 									</c:if> &nbsp;&nbsp; <c:if test="${pageno<totalpage}">
-										<a href="find?page.pageNo=${pageno+1}">下一页</a>
+										<a href="getMessage?page.pageNo=${pageno+1}">下一页</a>
 									</c:if> <c:if test="${pageno>=totalpage}">
 										<a href="#">下一页</a>
-									</c:if> &nbsp;&nbsp; <a href="find?page.pageNo=${totalpage}">尾页</a>
-								</td>
-							</tr>
+									</c:if> &nbsp;&nbsp; <a href="getMessage?page.pageNo=${totalpage}">尾页</a>
+									<div style="font-size: 25px;">您于&nbsp;&nbsp;&nbsp;&nbsp;${transaction.createDate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${transaction.type}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${transaction.money}元</div>
+									<div style="margin-left: 131px; margin-top: 250px;">
+										<tr>
+											<td colspan="7" rowspan="2">共${count}条记录&nbsp;&nbsp;共${totalpage}页/当前第${pageno}页&nbsp;&nbsp;
+												<a href="find?page.pageNo=1">首页</a>&nbsp;&nbsp; <c:if
+													test="${pageno>1}">
+													<a href="find?page.pageNo=${pageno-1}">上一页</a>
+												</c:if> <c:if test="${pageno<=1}">
+													<a href="#">上一页</a>
+												</c:if> &nbsp;&nbsp; <c:if test="${pageno<totalpage}">
+													<a href="find?page.pageNo=${pageno+1}">下一页</a>
+												</c:if> <c:if test="${pageno>=totalpage}">
+													<a href="#">下一页</a>
+												</c:if> &nbsp;&nbsp; <a href="find?page.pageNo=${totalpage}">尾页</a>
+											</td>
+										</tr>
+									</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="footer">
-			<div class="wrap clearfix">
-				<div class="aboutus">
-					<a target="_blank" href="javaScript:void(0)"><i
-						class="i-logo-lct"></i></a>
+			<div class="footer">
+				<div class="wrap clearfix">
+					<div class="aboutus">
+						<a target="_blank" href="javaScript:void(0)"><i
+							class="i-logo-lct"></i></a>
 
-					<div class="rt">
-						<a target="_blank" href="javaScript:void(0)" style="margin: 0;"><strong>关于理财精灵</strong></a>
-						<a class="lt-line" href="javaScript:void(0)">理财精灵简介</a>
+						<div class="rt">
+							<a target="_blank" href="javaScript:void(0)" style="margin: 0;"><strong>关于理财精灵</strong></a>
+							<a class="lt-line" href="javaScript:void(0)">理财精灵简介</a>
+						</div>
 					</div>
-				</div>
-				<div class="contactus">
-					<i class="i-phone"></i>
-					<div class="rt">
-						<strong>联系客服</strong> <span class="lt-line">微信用户：95017（拨通后转1再转6）
-							<br>QQ用户：86013860（拨通后转4）
-						</span> <span>工作时间：09:00-22:00</span>
+					<div class="contactus">
+						<i class="i-phone"></i>
+						<div class="rt">
+							<strong>联系客服</strong> <span class="lt-line">微信用户：95017（拨通后转1再转6）
+								<br>QQ用户：86013860（拨通后转4）
+							</span> <span>工作时间：09:00-22:00</span>
+						</div>
 					</div>
-				</div>
 
+				</div>
 			</div>
 		</div>
-	</div>
 </body>
 
 </html>
