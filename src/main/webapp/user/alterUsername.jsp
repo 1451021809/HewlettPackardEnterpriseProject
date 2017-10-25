@@ -11,11 +11,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Register</title>
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/registerStyle.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=basePath%>/css/registerStyle.css">
 </head>
 
 <body>
-	<form action="UserMange_alterUsername" onsubmit="return alterUsername()" method="post">
+	<form action="UserMange_alterUsername"
+		onsubmit="return alterUsername()" method="post">
 		<div class="body">
 			<header>
 				<label>昵称修改</label>
@@ -25,8 +27,7 @@
 			<div class="body-bodyer">
 				<div class="user">
 					<label for="user">新昵称:</label> <input type="text" id="user"
-						name="userModel.name" placeholder="请输入您的新昵称!"
-						>
+						name="userModel.name" placeholder="请输入您的新昵称!">
 				</div>
 			</div>
 			<hr>

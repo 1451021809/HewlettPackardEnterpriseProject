@@ -30,22 +30,34 @@
 					</a>
 				</h1>
 				<div class="main-nav">
-					<a class="nav-index" href="javaScript:void(0)">首页</a> <a
-						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
-						class="nav-index" href="javaScript:void(0)">关于我们</a>
 					<c:if test="${empty isLogin }">
-						<a class="text-login" href="<%=basePath%>/user/login.jsp"> <span
-							class="avata"> <img
-								src="<%=basePath%>/images/header_default.jpg">
-						</span> 登录
-						</a>
+						<div class="logout0">
+							<a class="nav-index" href="<%=basePath%>index.jsp">首页</a> <a
+								class="nav-index" href="javaScript:void(0)">余额宝</a> <a
+								class="nav-index" href="<%=basePath%>user/aboutus.jsp">关于我们</a>
+							<a class="text-login" href="<%=basePath%>user/login.jsp"> <span
+								class="avata"> <img
+									src="<%=basePath%>/images/header_default.jpg">
+							</span> 登录
+							</a>
+						</div>
+						<div style="position: absolute; right: -140px;">
+							<a href="logout"></a>
+						</div>
 					</c:if>
 					<c:if test="${not empty isLogin }">
-						<a class="text-login" href="<%=basePath%>/user/person.jsp"> <span
-							class="avata"> <img
-								src="<%=basePath%>/images/header_default.jpg">
-						</span> 我的信息
-						</a>
+						<div class="logout0">
+							<a class="nav-index" href="<%=basePath%>index.jsp">首页</a> <a
+								class="nav-index" href="javaScript:void(0)">余额宝</a> <a
+								class="nav-index" href="<%=basePath%>user/aboutus.jsp">关于我们</a> <a
+								class="text-login" href="<%=basePath%>user/person.jsp"> <span
+								class="avata"> <img
+									src="<%=basePath%>/images/header_default.jpg">
+							</span> 我的信息 
+						</div>
+						<div style="position: absolute; right: -140px;">
+							<a href="logout">退出</a>
+						</div>
 					</c:if>
 				</div>
 			</div>
@@ -62,7 +74,8 @@
 						<li><a href="Wallet">我的钱包</a></li>
 						<li><a href="getMyFund">我的基金</a></li>
 						<li><a href="getBill?id=${isLogin.id}
-						">账单</a><li>
+						">账单</a>
+						<li>
 						<li><a href="getMessage?id=${isLogin.id}">消息推送</a></li>
 
 					</ul>
@@ -87,7 +100,7 @@
 								<td>交易类型</td>
 								<td>交易金额</td>
 								<td>交易时间</td>
-								
+
 							</tr>
 							<c:forEach items="${transactionModels}" var="transaction"
 								varStatus="status">
@@ -113,32 +126,31 @@
 									</c:if> <c:if test="${pageno>=totalpage}">
 										<a href="#">下一页</a>
 									</c:if> &nbsp;&nbsp; <a href="getBill?page.pageNo=${totalpage}">尾页</a>
-						</table>
-
+									</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="wrap clearfix">
+					<div class="aboutus">
+						<a target="_blank" href="javaScript:void(0)"><i
+							class="i-logo-lct"></i></a>
+						<div class="rt">
+							<a target="_blank" href="javaScript:void(0)" style="margin: 0;"><strong>关于理财精灵<></a>
+							<a class="lt-line" href="javaScript:void(0)">理财精灵简介</a>
+						</div>
+					</div>
+					<div class="contactus">
+						<i class="i-phone"></i>
+						<div class="rt">
+							<strong>联系客服<> <span class="lt-line">微信用户：95017（拨通后转1再转6）
+									<br>QQ用户：86013860（拨通后转4）
+							</span> <span>工作时间：09:00-22:00</span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="footer">
-			<div class="wrap clearfix">
-				<div class="aboutus">
-					<a target="_blank" href="javaScript:void(0)"><i
-						class="i-logo-lct"></i></a>
-					<div class="rt">
-						<a target="_blank" href="javaScript:void(0)" style="margin: 0;"><strong>关于理财精灵<></a>
-						<a class="lt-line" href="javaScript:void(0)">理财精灵简介</a>
-					</div>
-				</div>
-				<div class="contactus">
-					<i class="i-phone"></i>
-					<div class="rt">
-						<strong>联系客服<> <span class="lt-line">微信用户：95017（拨通后转1再转6）
-								<br>QQ用户：86013860（拨通后转4）
-						</span> <span>工作时间：09:00-22:00</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>

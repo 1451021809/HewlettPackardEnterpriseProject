@@ -25,7 +25,7 @@ public class BuyDaoImpl implements BuyDao {
 
 	@Override
 	public boolean buy(UserModel model) {
-		baseDao.getHibernateTemplate().save(model);
+		baseDao.getHibernateTemplate().saveOrUpdate(model);
 		return true;
 	}
 

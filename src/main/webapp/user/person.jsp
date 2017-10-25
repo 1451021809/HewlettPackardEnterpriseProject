@@ -33,22 +33,34 @@
 					</a>
 				</h1>
 				<div class="main-nav">
-					<a class="nav-index" href="<%=basePath%>index.jsp">首页</a> <a
-						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
-						class="nav-index" href="javaScript:void(0)">关于我们</a>
-					<c:if test="${empty isLogin }">
-						<a class="text-login" href="<%=basePath%>/user/login.jsp"> <span
-							class="avata"> <img
-								src="<%=basePath%>/images/header_default.jpg">
-						</span> 登录
-						</a>
+				<c:if test="${empty isLogin }">
+						<div class="logout0">
+							<a class="nav-index" href="<%=basePath%>index.jsp">首页</a> <a
+								class="nav-index" href="javaScript:void(0)">余额宝</a> <a
+								class="nav-index" href="<%=basePath%>user/aboutus.jsp">关于我们</a>
+							<a class="text-login" href="<%=basePath%>user/login.jsp"> <span
+								class="avata"> <img
+									src="<%=basePath%>/images/header_default.jpg">
+							</span> 登录
+							</a>
+						</div>
+						<div style="position: absolute; right: -140px;">
+							<a href="logout"></a>
+						</div>
 					</c:if>
 					<c:if test="${not empty isLogin }">
-						<a class="text-login" href="<%=basePath%>/user/person.jsp"> <span
-							class="avata"> <img
-								src="<%=basePath%>/images/header_default.jpg">
-						</span> 我的信息
-						</a>
+						<div class="logout0">
+							<a class="nav-index" href="<%=basePath%>index.jsp">首页</a> <a
+								class="nav-index" href="javaScript:void(0)">余额宝</a> <a
+								class="nav-index" href="<%=basePath%>user/aboutus.jsp">关于我们</a> <a
+								class="text-login" href="<%=basePath%>user/person.jsp"> <span
+								class="avata"> <img
+									src="<%=basePath%>/images/header_default.jpg">
+							</span> 我的信息 
+						</div>
+						<div style="position: absolute; right: -140px;">
+							<a href="logout">退出</a>
+						</div>
 					</c:if>
 				</div>
 			</div>
@@ -63,8 +75,9 @@
 						<li><a href="<%=basePath%>/user/person.jsp">个人信息管理</a></li>
 						<li><a href="Wallet">我的钱包</a></li>
 						<li><a href="getMyFund">我的基金</a></li>
-						<li><a href="bill.html">账单</a></li>
-						<li><a href="notification.html">消息推送</a></li>
+						<li><a href="getBill?id=${isLogin.id}
+						">账单</a><li>
+						<li><a href="getMessage?id=${isLogin.id}">消息推送</a></li>
 					</ul>
 				</div>
 				<div class="right">
