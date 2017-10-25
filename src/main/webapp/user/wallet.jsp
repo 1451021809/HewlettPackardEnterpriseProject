@@ -28,23 +28,37 @@
 						</a>
 					</h1>
 					<div class="main-nav">
-						<a class="nav-index" href="<%=basePath%>index.jsp">首页</a> <a
-						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
-						class="nav-index" href="javaScript:void(0)">关于我们</a>
-					<c:if test="${empty isLogin }">
-						<a class="text-login" href="user/login.jsp"> <span
-							class="avata"> <img
-								src="<%=basePath%>/images/header_default.jpg">
-						</span> 登录
-						</a>
+						<c:if test="${empty isLogin }">
+					<div class="logout0">
+							<a class="nav-index" href="<%=basePath%>index.jsp">首页</a>
+							<a class="nav-index" href="javaScript:void(0)">余额宝</a>
+							<a class="nav-index" href="javaScript:void(0)">关于我们</a>
+
+							<a class="text-login" href="user/login.jsp"> <span
+								class="avata"> <img
+									src="<%=basePath%>/images/header_default.jpg">
+							</span> 登录
+							</a>
+					</div>
+					<div style="position: absolute; right: -140px;">
+						<a href="logout"></a>
+					</div>
 					</c:if>
 					<c:if test="${not empty isLogin }">
+					<div class="logout0">
+						<a class="nav-index" href="<%=basePath%>index.jsp">首页</a>
+						<a class="nav-index" href="javaScript:void(0)">余额宝</a>
+						<a class="nav-index" href="javaScript:void(0)">关于我们</a>
 						<a class="text-login" href="user/person.jsp"> <span
 							class="avata"> <img
 								src="<%=basePath%>/images/header_default.jpg">
-						</span> 我的信息
-						</a>
-					</c:if>
+						</span> 我的信息 
+				</div>
+				<div style="position: absolute; right: -140px;">
+					<a href="logout">退出</a>
+				</div>
+
+				</c:if>
 					</div>
 				</div>
 			</div>

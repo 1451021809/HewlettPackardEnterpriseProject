@@ -131,6 +131,14 @@ public class LoginAndRegisterAction {
 		return "bill";
 	}
 
+	/**
+	 * 退出
+	 * @return
+	 */
+	public String logout(){
+		ServletActionContext.getRequest().getSession().removeAttribute("isLogin");
+		return "logout";
+	}
 	public int getRegister_false() {
 		return register_false;
 	}

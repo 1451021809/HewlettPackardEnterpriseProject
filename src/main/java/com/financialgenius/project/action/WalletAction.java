@@ -1,5 +1,6 @@
 package com.financialgenius.project.action;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Set;
 
@@ -54,8 +55,12 @@ public class WalletAction {
 		} else {
 			System.out.println("用户ID=" + isLogin.getId());
 			System.out.println("用户已登录");
+			DecimalFormat format = new DecimalFormat("#.00");
 			// 获取账户总金额和累计收益
 			walletList = walletServiceImpl.wallet(wallet, isLogin);
+			for (WalletModel walletModel : walletList) {
+				walletModel.setProportion(Double.valueOf(format.format(walletModel.getProportion())));
+			}
 			// 获取昨日收益
 			profitMoney = walletServiceImpl.profit(isLogin);
 			// 查询账户绑定银行卡
@@ -103,7 +108,7 @@ public class WalletAction {
 			wallet.setTotalProfit(walletModel.getTotalProfit());
 			wallet.setId(walletModel.getId());
 		}
-		walletServiceImpl.transactions1(wallet, isLogin);
+		walletServiceImpl.transactions(wallet, isLogin);
 		wallet.setProportion(recharge + wallet.getProportion());
 		wallet.setUserId(isLogin.getId());
 		boolean isTrue = walletServiceImpl.Recharge(wallet, isLogin);
