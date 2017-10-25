@@ -28,6 +28,12 @@
 					</a>
 				</h1>
 				<div class="main-nav">
+<<<<<<< HEAD
+=======
+					<a class="nav-index" href="<%=basePath%>/index.jsp">首页</a> <a
+						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
+						class="nav-index" href="<%=basePath%>/user/aboutus.jsp">关于我们</a>
+>>>>>>> 7c4a365ccc974d278be404a7551ceb8f7b6632b6
 					<c:if test="${empty isLogin }">
 					<div class="logout0">
 							<a class="nav-index" href="<%=basePath%>index.jsp">首页</a>
@@ -93,7 +99,8 @@
 
 
 							<div style="font-size: 25px;">您于&nbsp;&nbsp; &nbsp;
-								${transaction.createDate} ${transaction.type}&nbsp; &nbsp;
+								${transaction.createDate}&nbsp; &nbsp;
+								&nbsp;&nbsp; ${transaction.type}&nbsp; &nbsp;
 								&nbsp; ${transaction.money}&nbsp; 元</div>
 						</c:forEach>
 						<div style="left: 40px; margin-top: 160px;">
