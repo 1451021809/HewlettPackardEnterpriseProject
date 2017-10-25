@@ -44,37 +44,29 @@
 				</ul>
 				<div class="ul-div">
 					<ul>
-						<li class="usermanage first"
-							onmouseenter="showusermanage('usera')"
-							onmouseleave="showusermanage('usera')">
-							<form action="UserAction" method="post">
-								<!--<button type="submit">用户管理</button>  -->
-								<a href="getUsers">用户管理</a>
-							</form>
-							<ul>
-								<li class="usera fontsize"><a href="user_number.jsp">用户人数统计</a>
-								</li>
-
-							</ul>
-						</li>
-						<li class="usermanage" onmouseenter="showusermanage('fund')"
-							onmouseleave="showusermanage('fund')"><a
-							href="shop_mange.html">商品管理</a>
-							<ul>
-								<li class="fund fontsize"><a href="add_fund.jsp">增加基金</a></li>
-								<li class="fund fontsize"><a href="fund_number.jsp">基金数量统计</a></li>
-								<li class="fund fontsize"><a href="fund_user_number.jsp">基金购买人数</a></li>
-								<li class="fund fontsize"><a href="fund_money.jsp">基金购买金额</a></li>
-							</ul></li>
-						<li class="usermanage" onmouseenter="showusermanage('money')"
-							onmouseleave="showusermanage('money')"><a
-							href="fund_mange.jsp">资金管理</a>
-							<ul>
-								<li class="money fontsize"><a href="#">金额详情</a></li>
-							</ul></li>
-						<li><a href="statistics.jsp">站长统计</a></li>
-					</ul>
-				</div>
+					<li class="usermanage first" onmouseenter="showusermanage('usera')"
+						onmouseleave="showusermanage('usera')">
+						<form action="UserAction" method="post">
+							<!--<button type="submit">用户管理</button>  -->
+							<a href="getUsers">用户管理</a>
+						</form>
+					</li>
+					<li class="usermanage" onmouseenter="showusermanage('fund')"
+						onmouseleave="showusermanage('fund')"><a href="List">商品管理</a>
+						<ul>
+							<li class="fund fontsize"><a href="Save">增加基金</a></li>
+							<li class="fund fontsize"><a href="Count">基金数量统计</a></li>
+							<li class="fund fontsize"><a href="ListOrder">基金购买人数</a></li>
+							<li class="fund fontsize"><a href="ListMoney">基金购买金额</a></li>
+						</ul></li>
+					<li class="usermanage" onmouseenter="showusermanage('money')"
+						onmouseleave="showusermanage('money')"><a
+						href="findMoneyDetails">资金管理</a>
+						<ul>
+							<li class="money fontsize"><a href="findMoneyDetails">金额详情</a></li>
+						</ul></li>
+					<li><a href="statistics.jsp">站长统计</a></li>
+				</ul>
 				<script src="../js/ul.js"></script>
 			</div>
 			<div class="right">
