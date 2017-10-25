@@ -2,10 +2,15 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Register</title>
-<link rel="stylesheet" type="text/css" href="../css/registerStyle.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/registerStyle.css">
 </head>
 
 <body>

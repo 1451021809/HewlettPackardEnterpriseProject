@@ -15,6 +15,7 @@ public class UserMangeServiceImpl implements UserMangeService {
 	@Override
 	public void alterUsernameOrPassword(UserModel userModel) {
 		umdp.alterUsernameOrPassword(userModel);
+
 	}
 
 	@Override

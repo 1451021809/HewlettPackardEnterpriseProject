@@ -41,8 +41,7 @@
 							</li>
 						</ul></li>
 					<li class="usermanage" onmouseenter="showusermanage('fund')"
-						onmouseleave="showusermanage('fund')"><a
-						href="List">商品管理</a>
+						onmouseleave="showusermanage('fund')"><a href="List">商品管理</a>
 						<ul>
 							<li class="fund fontsize"><a href="Save">增加基金</a></li>
 							<li class="fund fontsize"><a href="Count">基金数量统计</a></li>
@@ -61,10 +60,13 @@
 			<script src="js/ul.js"></script>
 		</div>
 		<div class="right">
+		<form action="queryKey" method="post">
 			<div class="check">
-                <input type="text">
-                <input type="button" value="搜索">
-            </div>
+				<input type="text" name="fundName"> 
+				<input type="submit" value="搜索">
+				
+			</div>
+		</form>
 			<table>
 				<thead>
 					<tr>
@@ -79,18 +81,19 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${list }" var="temp" varStatus="vs">
-					<tr>
-					<td>${temp.id }</td>
-					<td>${temp.name }</td>
-					<td>${temp.createDate }</td>
-					<td>${temp.describe }</td>
-					<td>${temp.profit }</td>
-					<td>${temp.proportion }</td>
-					<td><a href="Delete?fundModel.id=${temp.id }">删除</a> <a href="Update?fundModel.id=${temp.id }">修改</a></td>
-				</tr>
+						<tr>
+							<td>${temp.id }</td>
+							<td>${temp.name }</td>
+							<td>${temp.createDate }</td>
+							<td>${temp.describe }</td>
+							<td>${temp.profit }</td>
+							<td>${temp.proportion }</td>
+							<td><a href="Delete?fundModel.id=${temp.id }">删除</a> <a
+								href="Update?fundModel.id=${temp.id }">修改</a></td>
+						</tr>
 					</c:forEach>
 				</tbody>
-				
+
 			</table>
 		</div>
 	</div>

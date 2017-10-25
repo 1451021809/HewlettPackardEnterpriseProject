@@ -6,14 +6,14 @@
 <struts>
 	<include file="struts-tfq.xml"></include>
 	<package name="index" namespace="/" extends="json-default">
-		<action name="*" class="LoginAndRegisterAction" method="{1}">
-			<result name="login">/index.jsp</result>
-		</action>
+
+
 		<action name="Login" class="LoginAndRegisterAction" method="Login">
+
 			<result name="login">/user/person.jsp</result>
 
 			<result name="noLogin">/user/login.jsp</result>
-			<result name="admin">/admin/user_mange.jsp</result>
+			<result name="admin">/admin/user_mange.html</result>
 		</action>
 
 		<action name="Wallet" class="WalletAction" method="Wallet">
@@ -60,8 +60,9 @@
 			<result name="findStatistics">/admin/statistics.jsp</result>
 		</action>
 
-		<action name="findUnds" class="undsAction" method="findUnds">
-			<result name="finUnds">/user/unds.jsp</result>
+		<action name="getMyFund" class="undsAction" method="getMyFund">
+			<result name="getMyFund">/user/unds.jsp</result>
+			<result name="noLogin">/user/login.jsp</result>
 		</action>
 
 		<action name="List" class="shopmageAction" method="queryFund">
@@ -91,13 +92,32 @@
 		<action name="ListMoney" class="shopmageAction" method="queryMoney">
 			<result name="listMoney">/admin/fund_money.jsp</result>
 		</action>
-		
-		<action name="getMessage" class="LoginAndRegisterAction" method="getMessage">
+
+		<action name="Buy" class="BuyAction" method="Buy">
+			<result name="success">/user/pay.jsp</result>
+			<result name="noLogin">/user/login.jsp</result>
+		</action>
+		<action name="buyProfit" class="BuyAction" method="buyProfit">
+			<result name="success">/user/pay.jsp</result>
+			<result type="json"></result>
+		</action>
+
+		<action name="pay" class="BuyAction" method="pay">
+			<result name="success">/user/pay.jsp</result>
+		</action>
+		<action name="queryKey" class="shopmageAction" method="queryFundName">
+			<result name="list">/admin/shop_mange.jsp</result>
+		</action>
+
+
+
+		<action name="getMessage" class="LoginAndRegisterAction"
+			method="getMessage">
 			<result name="message">/user/notification.jsp</result>
 		</action>
 		<action name="getBill" class="LoginAndRegisterAction" method="getBill">
 			<result name="bill">/user/bill.jsp</result>
 		</action>
-	</package>
-
+	
+</package>
 </struts>

@@ -13,6 +13,8 @@ public interface ShopmageDao {
 	
 	List<OrderModel> getOrder();
 	
+	List<FundModel> getFundName(String username);
+	
 	//删除基金方法
 	void deleteFund(FundModel fund);
 	
@@ -23,6 +25,8 @@ public interface ShopmageDao {
 	
 	//添加基金
 	void addFund(FundModel fund);
+
+	
 	
 	
 }

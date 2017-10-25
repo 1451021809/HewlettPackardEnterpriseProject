@@ -16,18 +16,28 @@ public class ShopmageDaoImpl implements ShopmageDao {
 	@Autowired
 	private BaseDao baseDao;
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked") 
 	@Override
 	public List<FundModel> getFund() {
 
 		return (List<FundModel>) baseDao.getHibernateTemplate().find("from FundModel");
 	}
 
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<OrderModel> getOrder() {
 
 		return (List<OrderModel>) baseDao.getHibernateTemplate().find("from OrderModel");
+	}
+	/**
+	 * 模糊查询
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<FundModel> getFundName(String  username) {
+		
+		return (List<FundModel>) baseDao.getHibernateTemplate().find("from FundModel where name like ?" , "%"+username+"%");
 	}
 
 	@Override
@@ -55,4 +65,6 @@ public class ShopmageDaoImpl implements ShopmageDao {
 		baseDao.getHibernateTemplate().save(fund);
 	}
 
+
+	
 }

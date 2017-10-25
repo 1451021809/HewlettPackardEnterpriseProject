@@ -1,5 +1,6 @@
 package com.financialgenius.project.service.impl;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.financialgenius.project.dao.impl.MyWalletDaoImpl;
 import com.financialgenius.project.model.BankCardModel;
 import com.financialgenius.project.model.ProfitModel;
+import com.financialgenius.project.model.TransactionModel;
 import com.financialgenius.project.model.UserModel;
 import com.financialgenius.project.model.WalletModel;
 import com.financialgenius.project.service.MyWalletService;
@@ -62,10 +64,25 @@ public class MyWalletServiceImpl implements MyWalletService {
 		return true;
 	}
 
+	// 充值和提现
 	@Override
 	public boolean Recharge(WalletModel wallet, UserModel userModel) {
 		myWalletDaoImpl.Recharge(wallet, userModel);
 		return true;
+	}
+
+	@Override
+	public boolean transactions(WalletModel wallet, UserModel userModel) {
+		userModel.getTransactionModels().add(new TransactionModel("充值", wallet.getProportion(), new Date()));
+		myWalletDaoImpl.transactions(userModel);
+		return false;
+	}
+
+	@Override
+	public boolean transactions1(WalletModel wallet, UserModel userModel) {
+		userModel.getTransactionModels().add(new TransactionModel("提现", wallet.getProportion(), new Date()));
+		System.out.println(userModel.getId());
+		return myWalletDaoImpl.transactions(userModel);
 	}
 
 }
