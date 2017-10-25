@@ -92,6 +92,7 @@ public class BuyAction {
 			model.setProportion(walletModel.getProportion() - money);
 			model.setId(walletModel.getId());
 			model.setTotalProfit(walletModel.getTotalProfit());
+			model.setUserId(isLogin.getId());
 			walletServiceImpl.Recharge(model, isLogin);
 		}
 		for (FundModel fundModel : fundlists) {

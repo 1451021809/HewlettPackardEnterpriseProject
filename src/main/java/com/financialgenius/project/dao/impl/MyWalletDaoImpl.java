@@ -22,7 +22,7 @@ public class MyWalletDaoImpl implements MyWalletDao {
 
 	@Override
 	public List<WalletModel> walletDao(WalletModel wallet, UserModel userModel) {
-		String sql = "from WalletModel where users.id=?";
+		String sql = "from WalletModel where userId=?";
 		List<WalletModel> walletModel = (List<WalletModel>) baseDao.getHibernateTemplate().find(sql, userModel.getId());
 		return walletModel;
 	}

@@ -11,6 +11,11 @@
 			<result name="login">/index.jsp</result>
 		</action>
 
+		<action name="queryUser" class="LoginAndRegisterAction" method="queryUser">
+			<result name="register">/user/register.jsp</result>
+			<result name="noLogin">/user/login.jsp</result>
+		</action>
+
 		<action name="Login" class="LoginAndRegisterAction" method="Login">
 
 			<result name="login">/user/person.jsp</result>
@@ -136,9 +141,11 @@
 		<action name="getMessage" class="LoginAndRegisterAction"
 			method="getMessage">
 			<result name="message">/user/notification.jsp</result>
+			<result name="noLogin">/user/login.jsp</result>
 		</action>
 		<action name="getBill" class="LoginAndRegisterAction" method="getBill">
 			<result name="bill">/user/bill.jsp</result>
+			<result name="noLogin">/user/login.jsp</result>
 		</action>
 
 	</package>

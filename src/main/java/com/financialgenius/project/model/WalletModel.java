@@ -31,9 +31,12 @@ public class WalletModel {
 	@Column(name = "wallet_totalProfit", precision = 20, scale = 2)
 	private Double totalProfit;
 
-	@OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id", updatable = false)
-	private UserModel users;
+	@Column(name = "wallet_user_id")
+	private Long userId;
+
+	// @OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	// @JoinColumn(name = "user_id", updatable = false)
+	// private UserModel users;
 
 	public Long getId() {
 		return id;
@@ -59,13 +62,13 @@ public class WalletModel {
 		this.totalProfit = totalProfit;
 	}
 
-	public UserModel getUsers() {
-		return users;
-	}
-
-	public void setUsers(UserModel users) {
-		this.users = users;
-	}
+	// public UserModel getUsers() {
+	// return users;
+	// }
+	//
+	// public void setUsers(UserModel users) {
+	// this.users = users;
+	// }
 
 	@Override
 	public String toString() {
@@ -87,11 +90,12 @@ public class WalletModel {
 		this.totalProfit = totalProfit;
 	}
 
-	public WalletModel(Long id, Double proportion, Double totalProfit) {
-		super();
-		this.id = id;
-		this.proportion = proportion;
-		this.totalProfit = totalProfit;
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 }
