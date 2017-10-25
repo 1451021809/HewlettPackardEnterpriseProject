@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 <head>
     <meta charset="UTF-8">
-    <title>用户人数统计</title>
-    <link rel="stylesheet" type="text/css" href="../css/admin.css">
-    <link rel="stylesheet" type="text/css" href="../css/adminStyle.css">
+    <title>基金数量统计</title>
+   <link rel="stylesheet" type="text/css" href="css/admin.css">
+    <link rel="stylesheet" type="text/css" href="css/adminStyle.css">
 </head>
 
 <body>
@@ -15,8 +20,8 @@
     </div>
     <div class="body">
         <div class="left">
-            	<ul class="left-img">
-				<span><li class="left-img"><img src="../images/default_photo.jpg"></li></span>
+           	<ul class="left-img">
+				<span><li class="left-img"><img src="images/default_photo.jpg"></li></span>
 			</ul>
 			<div class="ul-div">
 				<ul>
@@ -32,12 +37,12 @@
 						</ul>
 					</li>
 					<li class="usermanage" onmouseenter="showusermanage('fund')" onmouseleave="showusermanage('fund')">
-					<a href="shop_mange.html">商品管理</a>
+					<a href="List">商品管理</a>
 						<ul>
-							<li class="fund fontsize"><a href="add_fund.html">增加基金</a></li>
-							<li class="fund fontsize"><a href="fund_number.html">基金数量统计</a></li>
-							<li class="fund fontsize"><a href="fund_user_number.html">基金购买人数</a></li>
-							<li class="fund fontsize"><a href="fund_money.html">基金购买金额</a></li>
+							<li class="fund fontsize"><a href="Save">增加基金</a></li>
+							<li class="fund fontsize"><a href="Count">基金数量统计</a></li>
+							<li class="fund fontsize"><a href="ListOrder">基金购买人数</a></li>
+							<li class="fund fontsize"><a href="ListMoney">基金购买金额</a></li>
 						</ul>
 					</li>
 					<li class="usermanage" onmouseenter="showusermanage('money')" onmouseleave="showusermanage('money')">
@@ -52,10 +57,10 @@
 					</li>
 				</ul>
 			</div>
-			<script src="../js/ul.js"></script>
+			<script src="js/ul.js"></script>
         </div>
         <div class="right">
-            <h1>用户人数：</h1>
+            <h1>基金数量：${list.size() }</h1>
         </div>
     </div>
 </body>

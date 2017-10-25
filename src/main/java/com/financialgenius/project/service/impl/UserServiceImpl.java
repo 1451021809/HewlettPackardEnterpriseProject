@@ -1,6 +1,9 @@
-package com.financialgenius.project.service.impl;
+﻿package com.financialgenius.project.service.impl;
 
 import java.util.List;
+import java.util.Set;
+
+import javax.management.relation.Role;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,8 +14,8 @@ import com.financialgenius.project.model.ProfitModel;
 import com.financialgenius.project.model.RolesModel;
 import com.financialgenius.project.model.TransactionModel;
 import com.financialgenius.project.model.UserModel;
+
 import com.financialgenius.project.model.WalletModel;
-import com.financialgenius.project.service.IndexService;
 import com.financialgenius.project.service.UserService;
 
 @Service
@@ -26,11 +29,27 @@ public class UserServiceImpl implements UserService {
 		return userDaoImpl.isLogin(user);
 	}
 
+	// 获取角色
+	@Override
+	public int getRoles(UserModel user) {
+		List<UserModel> model = userDaoImpl.getRoles(user);
+		for (UserModel userModel : model) {
+			Set<RolesModel> rolesModel = userModel.getRoles();
+			for (RolesModel rolesModel2 : rolesModel) {
+				if (rolesModel2.getId() == 1) {
+					return 1;
+				} else {
+					return 2;
+				}
+			}
+		}
+		return 0;
+	}
+
 	// 注册 （添加）
 	@Override
 	public void register(UserModel userModel) {
 		userDaoImpl.register(userModel);
-
 	}
 
 	// 注册（查询账户是否存在）
@@ -97,11 +116,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<UserModel> dimGetUsers(String name) {
 		return userDaoImpl.dimGetUsers(name);
-	}
-
-	@Override
-	public void freezeUsers(UserModel user) {
-		userDaoImpl.freezeUsers(user);
 	}
 
 	@Override

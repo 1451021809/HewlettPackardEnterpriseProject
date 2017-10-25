@@ -2,6 +2,7 @@ package com.financialgenius.project.dao.impl;
 
 import java.util.Date;
 import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ public class UserDaoImpl implements UserDao {
 		String sql = "from UserModel where username=? and password=? and status=?";
 		List<UserModel> list = (List<UserModel>) baseDao.getHibernateTemplate().find(sql, user.getUsername(),
 				user.getPassword(), 1);
+		
 		if (list != null && list.size() > 0) {
 			return list.get(0);
 		}
@@ -136,21 +138,24 @@ public class UserDaoImpl implements UserDao {
 		baseDao.getHibernateTemplate().saveOrUpdate(user);
 	}
 
-	@Override
-	public boolean freezeUsers(UserModel user) {
-		baseDao.getHibernateTemplate().update(user);
-		return true;
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserModel> dimGetUsers(String name) {
-		return (List<UserModel>) baseDao.getHibernateTemplate().find("from UserModel where name like %" + name + "%");
+		return (List<UserModel>) baseDao.getHibernateTemplate().find("from UserModel where name like ?","%" + name + "%");
 	}
 
 	@Override
 	public void addUsers(UserModel user) {
 		user.setCreateDate(new Date());
 		baseDao.getHibernateTemplate().save(user);
+		}
+
+	// 获取角色
+	@Override
+	public List<UserModel> getRoles(UserModel user) {
+		String sql = "from UserModel where id=?";
+		List<UserModel> model = (List<UserModel>) baseDao.getHibernateTemplate().find(sql, user.getId());
+		return model;
 	}
+
 }

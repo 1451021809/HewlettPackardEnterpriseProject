@@ -14,11 +14,20 @@ public class UserAction {
 	private UserServiceImpl impl;
 	private UserModel user;
 	private List<UserModel> list;
+	private int userCountAll;
 
 	public String addUsers() {
 		impl.addUsers(user);
 		list = impl.getUsers();
 		return "add1";
+	}
+
+	public int getUserCountAll() {
+		return userCountAll;
+	}
+
+	public void setUserCountAll(int userCountAll) {
+		this.userCountAll = userCountAll;
 	}
 
 	public String add() {
@@ -27,12 +36,18 @@ public class UserAction {
 
 	public String edit() {
 		user = impl.getUser(user);
-		return "update";
+		return "updat";
 	}
 
 	public String getUsers() {
 		list = impl.getUsers();
 		return "add1";
+	}
+
+	public String countAll() {
+		list = impl.getUsers();
+		userCountAll = list.size();
+		return "userCountAll";
 	}
 
 	public String deleteUsers() {
@@ -44,9 +59,11 @@ public class UserAction {
 	public String updateUsers() {
 		impl.updateUsers(user);
 		list = impl.getUsers();
-		return "update1";
+		return "updat1";
 	}
+
 	String searchName;
+
 	public String dimGetUsers() {
 		list = impl.dimGetUsers(searchName);
 		return "dimGet";
@@ -75,7 +92,5 @@ public class UserAction {
 	public void setSearchName(String searchName) {
 		this.searchName = searchName;
 	}
-	
-	
 
 }

@@ -36,7 +36,7 @@ public class UserModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
-	private int id;
+	private Long id;
 
 	@Column(name = "user_name")
 	private String name;
@@ -95,11 +95,11 @@ public class UserModel {
 		this.orders = orders;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -191,17 +191,13 @@ public class UserModel {
 		this.bankCardModels = bankCardModels;
 	}
 
-	@Override
-	public String toString() {
-		return "UserModel [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
-				+ ", status=" + status + ", email=" + email + ", createDate=" + createDate + "]";
-	}
-
+	
+	
 	public UserModel() {
 		super();
 	}
 
-	public UserModel(int id) {
+	public UserModel(Long id) {
 		super();
 		this.id = id;
 	}
@@ -216,7 +212,7 @@ public class UserModel {
 		this.createDate = createDate;
 	}
 
-	public UserModel(int id, String name, String username, String password, int status, String email,
+	public UserModel(Long id, String name, String username, String password, int status, String email,
 			Date createDate) {
 		super();
 		this.id = id;
@@ -227,5 +223,10 @@ public class UserModel {
 		this.email = email;
 		this.createDate = createDate;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "UserModel [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
+				+ ", status=" + status + ", email=" + email + ", createDate=" + createDate + "]";
+	}
 }

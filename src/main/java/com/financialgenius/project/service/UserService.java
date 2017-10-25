@@ -9,7 +9,6 @@ import com.financialgenius.project.model.ProfitModel;
 import com.financialgenius.project.model.RolesModel;
 import com.financialgenius.project.model.TransactionModel;
 import com.financialgenius.project.model.UserModel;
-import com.financialgenius.project.model.WalletModel;
 
 @Service
 public interface UserService {
@@ -51,9 +50,11 @@ public interface UserService {
 
 	List<UserModel> dimGetUsers(String name);
 
-	void freezeUsers(UserModel user);
-
 	void addUsers(UserModel user);
 
 	void deleteUser(UserModel user);
+
+	// 获取用户角色
+	int getRoles(UserModel user);
+
 }

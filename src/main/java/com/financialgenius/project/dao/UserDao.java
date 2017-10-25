@@ -50,10 +50,13 @@ public interface UserDao {
 
 	void updateUsers(UserModel user);
 
-	boolean freezeUsers(UserModel user);
-
 	List<UserModel> dimGetUsers(String name);
 
 	void addUsers(UserModel user);
+
+	// 获取角色
+	List<UserModel> getRoles(UserModel user);
+
+	UserModel getUser(UserModel userModel);
 
 }

@@ -2,10 +2,8 @@ package com.financialgenius.project.action;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +14,6 @@ import com.financialgenius.project.model.RolesModel;
 import com.financialgenius.project.model.TransactionModel;
 import com.financialgenius.project.model.UserModel;
 import com.financialgenius.project.service.impl.UserServiceImpl;
-import com.opensymphony.xwork2.ActionContext;
 
 /**
  * 登录和注册
@@ -49,9 +46,14 @@ public class LoginAndRegisterAction {
 		if (isLogin == null) {
 			return "noLogin";
 		} else {
-			// 保存用户登录信息
-			ServletActionContext.getRequest().getSession().setAttribute("isLogin", isLogin);
-			return "login";
+			if (impl.getRoles(isLogin) == 1) {
+				// 保存用户登录信息
+				ServletActionContext.getRequest().getSession().setAttribute("isLogin", isLogin);
+				return "login";
+			} else {
+				return "admin";
+			}
+
 		}
 
 	}
@@ -89,18 +91,18 @@ public class LoginAndRegisterAction {
 		transactionModels = impl.getTransactionModel(transactionModel);
 		return "bill";
 	}
-/*
-	// 获取交易表中的信息（消息推送）
-	public String getTransactionModel() {
-		transactionModels = impl.getTransactionModel(transactionModel);
-
-		return "message";
-
-	}*/
+	/*
+	 * // 获取交易表中的信息（消息推送） public String getTransactionModel() {
+	 * transactionModels = impl.getTransactionModel(transactionModel);
+	 * 
+	 * return "message";
+	 * 
+	 * }
+	 */
 
 	// 交易表分页查询（消息推送）
 	public String find() {
-		
+
 		int Count = impl.TransactionCount();
 		// 获得当前页码
 		int pageNo = page.getPageNo();

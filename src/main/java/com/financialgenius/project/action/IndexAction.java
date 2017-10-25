@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import com.financialgenius.project.model.FundModel;
 import com.financialgenius.project.service.impl.IndexServiceImpl;
-import com.financialgenius.project.service.impl.UserServiceImpl;
 
 /**
  * 主页
@@ -17,8 +16,13 @@ import com.financialgenius.project.service.impl.UserServiceImpl;
  */
 @Component("IndexAction")
 public class IndexAction {
+	/**
+	 * 
+	 */
 	@Autowired
 	private IndexServiceImpl impl;
+
+	// ajax返回结果
 	private List<FundModel> fundList;
 
 	public String Index() {

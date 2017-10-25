@@ -28,14 +28,12 @@
 			<div class="ul-div">
 				<ul>
 					<li class="usermanage first" onmouseenter="showusermanage('usera')"
-						onmouseleave="showusermanage('usera')"><a
-						href="user_mange.jsp">用户管理</a>
-						<ul>
-							<li class="usera fontsize"><a href="user_number.html">用户人数统计</a>
-							</li>
-							<li class="usera fontsize"><a href="user_area.html">用户来源地区统计</a>
-							</li>
-						</ul></li>
+						onmouseleave="showusermanage('usera')">
+						<form action="UserAction" method="post">
+							<!--<button type="submit">用户管理</button>  -->
+							<a href="getUsers">用户管理</a>
+						</form>
+					</li>
 					<li class="usermanage" onmouseenter="showusermanage('fund')"
 						onmouseleave="showusermanage('fund')"><a
 						href="shop_mange.html">商品管理</a>
@@ -74,17 +72,18 @@
             </ul>-->
 		</div>
 		<div class="right">
-
-
-			<h1 class="user_mange">
-				<a href="user_number.html">用户人数统计</a>
-			</h1>
+			<form action="countAll" method="post">
+				<h1 class="user_mange">
+					<button type="submit">用户人数统计</button>
+				</h1>
+			</form>
 			<h1 class="user_mange">
 				<a href="user_add.jsp">添加用户</a>
 			</h1>
 			<form action="dimGetUsers" method="post">
 				<div class="check">
-					<input type="text"> <input type="submit" value="搜索">
+					<input type="text" name="searchName"> <input type="submit"
+						value="搜索">
 				</div>
 			</form>
 			<table>
@@ -108,7 +107,7 @@
 						<td>${obj.email }</td>
 						<td>${obj.createDate }</td>
 						<td><a href="edit?user.id=${obj.id }">修改</a> <a
-							href="delete?user.id=${obj.id }">删除</a></td>
+							href="deleteUsers?user.id=${obj.id }">删除</a></td>
 					</tr>
 				</c:forEach>
 			</table>

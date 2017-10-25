@@ -54,7 +54,7 @@
 		</div>
 		<div class="right">
 			<form action="updateUsers" method="post">
-				<input type="hidden" name="user.id">
+				<input type="hidden" name="user.id" value="${user.id }">
 				<table class="input">
 					<tr>
 						<td>昵称:</td>
