@@ -28,9 +28,9 @@
 					</a>
 				</h1>
 				<div class="main-nav">
-					<a class="nav-index" href="javaScript:void(0)">首页</a> <a
+					<a class="nav-index" href="<%=basePath%>/index.jsp">首页</a> <a
 						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
-						class="nav-index" href="javaScript:void(0)">关于我们</a>
+						class="nav-index" href="<%=basePath%>/user/aboutus.jsp">关于我们</a>
 					<c:if test="${empty isLogin }">
 						<a class="text-login" href="<%=basePath%>/user/login.jsp"> <span
 							class="avata"> <img
@@ -79,7 +79,8 @@
 
 
 							<div style="font-size: 25px;">您于&nbsp;&nbsp; &nbsp;
-								${transaction.createDate} ${transaction.type}&nbsp; &nbsp;
+								${transaction.createDate}&nbsp; &nbsp;
+								&nbsp;&nbsp; ${transaction.type}&nbsp; &nbsp;
 								&nbsp; ${transaction.money}&nbsp; 元</div>
 						</c:forEach>
 						<div style="left: 40px; margin-top: 160px;">
@@ -97,10 +98,6 @@
 									</c:if> &nbsp;&nbsp; <a href="getMessage?page.pageNo=${totalpage}">尾页</a>
 								</td>
 							</tr>
-<<<<<<< HEAD
-=======
-
->>>>>>> dbafcab6c4509aa10e9aa63d674c770a706cae84
 						</div>
 					</div>
 				</div>

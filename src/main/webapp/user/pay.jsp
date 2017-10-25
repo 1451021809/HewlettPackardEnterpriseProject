@@ -31,24 +31,22 @@
 					</a>
 				</h1>
 				<div class="main-nav">
-					<a class="nav-index" href="<%=basePath%>index.jsp">首页</a> <a
+					<a class="nav-index" href="<%=basePath%>/index.jsp">首页</a> <a
 						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
-						class="nav-index" href="javaScript:void(0)">关于我们</a>
+						class="nav-index" href="<%=basePath%>/user/aboutus.jsp">关于我们</a>
 					<c:if test="${empty isLogin }">
-						<a class="text-login" href="user/login.jsp"> <span
+						<a class="text-login" href="<%=basePath%>user/login.jsp"> <span
 							class="avata"> <img
 								src="<%=basePath%>/images/header_default.jpg">
-						</span> 登录
-						</a>
+						</span>登录 
 					</c:if>
 					<c:if test="${not empty isLogin }">
-						<a class="text-login" href="user/person.jsp"> <span
+						<a class="text-login" href="<%=basePath%>user/person.jsp"> <span
 							class="avata"> <img
 								src="<%=basePath%>/images/header_default.jpg">
 						</span> 我的信息
 						</a>
 					</c:if>
-
 				</div>
 			</div>
 		</div>
@@ -81,63 +79,67 @@
 		</div>
 		<br>
 		<form action="pay" method="post" onsubmit="return buy()">
-		<div class="bot">
-			<label class="label9">支付金额：&nbsp; <label class="label-1" id="money02">¥0.00</label>
-				<label class="font"></label>
-			</label> <br> <br> <label class="label-2"> <input
-				type="radio" id="t"> <label class="font">同意</label><a href="#"
-				class="bot-a">服务协议及风险提示</a></label> <br> <input type="submit" name=""
-				class="but" value="余额支付">
-				<input type="hidden" name="wallet.id=1">
-		</div>
+			<div class="bot">
+				<label class="label9">支付金额：&nbsp; <label class="label-1"
+					id="money02">¥0.00</label> <label class="font"></label>
+				</label> <br> <br> <label class="label-2"> <input
+					type="radio" id="t"> <label class="font">同意</label><a
+					href="#" class="bot-a">服务协议及风险提示</a></label> <br> <input type="submit"
+					name="" class="but" value="余额支付"> <input type="hidden"
+					name="wallet.id=1">
+			</div>
 		</form>
 
 	</div>
 	<script type="text/javascript">
-	var money = "";
-		$("input").blur(function() {
-			var money01 = $("#money01").val();
-			if(money01===""){
-				alert("购买金额不能为空");
-			}else if(money01<=1000 || money01>100000){
-				alert("购买金额只能在1000-100000之间!");
-			}else{
-				$("#money02").text("¥"+money01);
-				$(function() {
-					$.ajax({
-						type : "POST",
-						url : "http://localhost:8080/FinancialGenius/buyProfit",
-						data : {//设置数据源
-							money : money01,
-						},
-						dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
-						success : function(json) {
-							$("#profits").text(json.profit);
-							if(json.noMoney===""){
-								money = "";
-							}else{
-								money = "余额不足，请充值";
+		var money = "";
+		$("input")
+				.blur(
+						function() {
+							var money01 = $("#money01").val();
+							if (money01 === "") {
+								alert("购买金额不能为空");
+							} else if (money01<=1000 || money01>100000) {
+								alert("购买金额只能在1000-100000之间!");
+							} else {
+								$("#money02").text("¥" + money01);
+								$(function() {
+									$
+											.ajax({
+												type : "POST",
+												url : "http://localhost:8080/FinancialGenius/buyProfit",
+												data : {//设置数据源
+													money : money01,
+												},
+												dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
+												success : function(json) {
+													$("#profits").text(
+															json.profit);
+													if (json.noMoney === "") {
+														money = "";
+													} else {
+														money = "余额不足，请充值";
+													}
+												},
+												error : function(json) {
+													alert("json=ERROR");
+													return false;
+												}
+											});
+								});
 							}
-						},
-						error : function(json) {
-							alert("json=ERROR");
-							return false;
-						}
-					});
-				});
-			}
-		});
-		
-		function buy(){
+						});
+
+		function buy() {
 			var checks = $("#t").is(':checked');
-			if(checks){
-				if(money === "余额不足，请充值"){
+			if (checks) {
+				if (money === "余额不足，请充值") {
 					alert(money);
-				}else{
+				} else {
 					return true;
 				}
 				return false;
-			}else{
+			} else {
 				alert("请仔细阅读并同意服务协议及风险提示!");
 				return false;
 			}
