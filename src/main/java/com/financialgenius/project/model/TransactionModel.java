@@ -1,6 +1,5 @@
 package com.financialgenius.project.model;
 
-import java.math.BigInteger;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -90,6 +89,12 @@ public class TransactionModel {
 		this.type = type;
 		this.money = money;
 		this.createDate = createDate;
+	}
+
+	@Override
+	public String toString() {
+		return "TransactionModel [id=" + id + ", type=" + type + ", money=" + money + ", createDate=" + createDate
+				+ "]";
 	}
 
 }

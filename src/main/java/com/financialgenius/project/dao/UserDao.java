@@ -3,9 +3,6 @@ package com.financialgenius.project.dao;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
-
-import com.financialgenius.project.model.FundModel;
-import com.financialgenius.project.model.ProfitModel;
 import com.financialgenius.project.model.RolesModel;
 import com.financialgenius.project.model.TransactionModel;
 import com.financialgenius.project.model.UserModel;
@@ -31,20 +28,11 @@ public interface UserDao {
 	// 注册（查询角色表中角色名为commonUser，绑定用户表）
 	List<RolesModel> getRole(RolesModel rolesModel);
 
-	// 查询基金表
-	List<FundModel> getFundModel(FundModel fundModel);
+	// 根据登录的用户查询该用户的交易信息（分页查询）
+	List<TransactionModel> findAllByPage(int pageNo, int pageSize, Long id);
 
-	// 查询收益表
-	List<ProfitModel> getProfitModel(ProfitModel profitModel);
-
-	// 查询交易表
-	List<TransactionModel> getTransactionModel(TransactionModel transactionModel);
-
-	// 分页查询
-	List<TransactionModel> findAllByPage(int pageNo, int pageSize);
-
-	// 获取总数
-	int TransactionCount();
+	// 获取总条数
+	int TransactionCount(Long id);
 
 	List<UserModel> getUsers();
 

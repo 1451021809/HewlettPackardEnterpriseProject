@@ -29,13 +29,8 @@ public class LoginAndRegisterAction {
 
 	private UserModel user;
 	private RolesModel rolesModel;
-	private ProfitModel profitModel;
-	private FundModel fundModel;
-	private TransactionModel transactionModel;
 
 	private List<UserModel> list;
-	private List<FundModel> fundModels;
-	private List<ProfitModel> profitModels;
 	private List<TransactionModel> transactionModels;
 	Page page = new Page();
 	private UserModel isLogin;
@@ -80,42 +75,49 @@ public class LoginAndRegisterAction {
 			user.getRoles().addAll(impl.getRole(rolesModel));
 			impl.register(user);
 			// 注册成功到登录页面
-			return "login";
+			return "noLogin";
 		}
 	}
 
-	// 查询基金表，收益表 交易表
-	public String getTable() {
-		fundModels = impl.getFundModel(fundModel);
-		profitModels = impl.getProfitModel(profitModel);
-		transactionModels = impl.getTransactionModel(transactionModel);
-		return "bill";
-	}
-	/*
-	 * // 获取交易表中的信息（消息推送） public String getTransactionModel() {
-	 * transactionModels = impl.getTransactionModel(transactionModel);
-	 * 
-	 * return "message";
-	 * 
-	 * }
-	 */
-
-	// 交易表分页查询（消息推送）
-	public String find() {
-
-		int Count = impl.TransactionCount();
+	// 根据登录的用户查询该用户的交易信息（消息推送）
+	public String getMessage() {
+		// 获取当前用户登录的Id
+		Long id = isLogin.getId();
+		// 获取总条数
+		Long Count = (long) impl.TransactionCount(id);
 		// 获得当前页码
 		int pageNo = page.getPageNo();
-		System.out.println("sjdkahfa");
-		System.out.println(pageNo);
+		// 获取最多显示多少条
+		int pagesize = page.getPagesize();
 		page.setTotalCount(Count);
-		// 总页数
+		// 获取总页数
 		int totalpage = (int) page.getTotalpage();
-		transactionModels = impl.findAllByPage(pageNo, page.getPagesize());
+		// 调用service层的分页查询方法
+		transactionModels = impl.findAllByPage(pageNo, pagesize, id);
 		ServletActionContext.getRequest().getSession().setAttribute("count", Count);
 		ServletActionContext.getRequest().getSession().setAttribute("pageno", pageNo);
 		ServletActionContext.getRequest().getSession().setAttribute("totalpage", totalpage);
 		return "message";
+	}
+	// 交易表分页查询（消息推送）
+	public String getBill() {
+		// 获取当前用户登录的Id
+		Long id = isLogin.getId();
+		// 获取总条数
+		Long Count = (long) impl.TransactionCount(id);
+		// 获得当前页码
+		int pageNo = page.getPageNo();
+		// 获取最多显示多少条
+		int pagesize = page.getPagesize();
+		page.setTotalCount(Count);
+		// 获取总页数
+		int totalpage = (int) page.getTotalpage();
+		// 调用service层的分页查询方法
+		transactionModels = impl.findAllByPage(pageNo, pagesize, id);
+		ServletActionContext.getRequest().getSession().setAttribute("count", Count);
+		ServletActionContext.getRequest().getSession().setAttribute("pageno", pageNo);
+		ServletActionContext.getRequest().getSession().setAttribute("totalpage", totalpage);
+		return "bill";
 	}
 
 	public int getRegister_false() {
@@ -146,40 +148,8 @@ public class LoginAndRegisterAction {
 		this.rolesModel = rolesModel;
 	}
 
-	public ProfitModel getProfitModel() {
-		return profitModel;
-	}
-
-	public void setProfitModel(ProfitModel profitModel) {
-		this.profitModel = profitModel;
-	}
-
-	public FundModel getFundModel() {
-		return fundModel;
-	}
-
-	public void setFundModel(FundModel fundModel) {
-		this.fundModel = fundModel;
-	}
-
-	public List<FundModel> getFundModels() {
-		return fundModels;
-	}
-
-	public List<ProfitModel> getProfitModels() {
-		return profitModels;
-	}
-
 	public List<TransactionModel> getTransactionModels() {
 		return transactionModels;
-	}
-
-	public void setTransactionModel(TransactionModel transactionModel) {
-		this.transactionModel = transactionModel;
-	}
-
-	public TransactionModel getTransactionModel1() {
-		return transactionModel;
 	}
 
 	public Page getPage() {
@@ -197,4 +167,5 @@ public class LoginAndRegisterAction {
 	public void setIsLogin(UserModel isLogin) {
 		this.isLogin = isLogin;
 	}
+
 }

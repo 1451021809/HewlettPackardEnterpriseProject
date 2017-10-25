@@ -3,13 +3,25 @@
 <!DOCTYPE html>
 <html>
 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <head>
 <meta charset="UTF-8">
 <title>个人信息</title>
-<link rel="stylesheet" type="text/css" href="../css/adminStyle.css">
-<link rel="stylesheet" type="text/css" href="../css/index.css">
-<link rel="stylesheet" type="text/css" href="../css/global.css">
-<link rel="stylesheet" type="text/css" href="../css/headAndTail.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=basePath%>/css/adminStyle.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=basePath%>/css/index.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=basePath%>/css/global.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=basePath%>/css/headAndTail.css">
 </head>
 
 <body>
@@ -17,17 +29,27 @@
 		<div class="head-warp">
 			<div class="head">
 				<h1 class="logo">
-					<a href="index.html"> <img src="../images/logo.png">
+					<a href="<%=basePath%>index.jsp"> <img src="<%=basePath%>/images/logo.png">
 					</a>
 				</h1>
 				<div class="main-nav">
-					<a class="nav-index" href="javaScript:void(0)">首页</a> <a
+					<a class="nav-index" href="<%=basePath%>index.jsp">首页</a> <a
 						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
-						class="nav-index" href="javaScript:void(0)">关于我们</a> <a
-						class="text-login" href="login01.html"> <span class="avata">
-							<img src="../images/header_default.jpg">
-					</span> 登录
-					</a>
+						class="nav-index" href="javaScript:void(0)">关于我们</a>
+					<c:if test="${empty isLogin }">
+						<a class="text-login" href="<%=basePath%>/user/login.jsp"> <span
+							class="avata"> <img
+								src="<%=basePath%>/images/header_default.jpg">
+						</span> 登录
+						</a>
+					</c:if>
+					<c:if test="${not empty isLogin }">
+						<a class="text-login" href="<%=basePath%>/user/person.jsp"> <span
+							class="avata"> <img
+								src="<%=basePath%>/images/header_default.jpg">
+						</span> 我的信息
+						</a>
+					</c:if>
 				</div>
 			</div>
 		</div>
@@ -37,10 +59,10 @@
 				<div class="left">
 					<ul>
 						<span><li class="left-img"><img
-								src="../images/default_photo.jpg"></li></span>
-						<li><a href="person.html">个人信息管理</a></li>
-						<li><a href="wallet.html">我的钱包</a></li>
-						<li><a href="unds.html">我的基金</a></li>
+								src="<%=basePath%>/images/default_photo.jpg"></li></span>
+						<li><a href="<%=basePath%>/user/person.jsp">个人信息管理</a></li>
+						<li><a href="Wallet">我的钱包</a></li>
+						<li><a href="getMyFund">我的基金</a></li>
 						<li><a href="bill.html">账单</a></li>
 						<li><a href="notification.html">消息推送</a></li>
 					</ul>
@@ -51,7 +73,7 @@
 					</div>
 					<hr>
 					<div class="head-portrait">
-						<img src="images/default_photo.jpg">
+						<img src="<%=basePath%>/images/default_photo.jpg">
 					</div>
 					<div class="account">
 						<div class="account-left">

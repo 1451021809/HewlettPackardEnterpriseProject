@@ -25,12 +25,15 @@ public class AdminMangeAction {
 		list = adminServiceImpl.getUsers();
 		return "frost";
 	}
+	
 	public UserModel getUserModel() {
 		return userModel;
 	}
+	
 	public void setUserModel(UserModel userModel) {
 		this.userModel = userModel;
 	}
+	
 	public List<UserModel> getList() {
 		return list;
 	}

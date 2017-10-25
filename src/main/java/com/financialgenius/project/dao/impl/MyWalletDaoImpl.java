@@ -10,6 +10,7 @@ import com.financialgenius.project.common.BaseDao;
 import com.financialgenius.project.dao.MyWalletDao;
 import com.financialgenius.project.model.BankCardModel;
 import com.financialgenius.project.model.ProfitModel;
+import com.financialgenius.project.model.TransactionModel;
 import com.financialgenius.project.model.UserModel;
 import com.financialgenius.project.model.WalletModel;
 
@@ -48,6 +49,18 @@ public class MyWalletDaoImpl implements MyWalletDao {
 	@Override
 	public boolean Recharge(WalletModel wallet, UserModel userModel) {
 		baseDao.getHibernateTemplate().update(wallet);
+		return true;
+	}
+
+	@Override
+	public boolean transactions(UserModel userModel) {
+		baseDao.getHibernateTemplate().save(userModel);
+		return false;
+	}
+
+	@Override
+	public boolean transactions1(UserModel userModel) {
+		baseDao.getHibernateTemplate().save(userModel);
 		return true;
 	}
 

@@ -12,7 +12,6 @@ import com.financialgenius.project.model.ProfitModel;
 import com.financialgenius.project.model.UserModel;
 import com.financialgenius.project.model.WalletModel;
 import com.financialgenius.project.service.impl.MyWalletServiceImpl;
-import com.financialgenius.project.service.impl.UserServiceImpl;
 
 /**
  * 我的钱包
@@ -36,6 +35,7 @@ public class WalletAction {
 	// 用户登录信息
 	private UserModel isLogin;
 
+	// 账户余额
 	private Double recharge;
 
 	// 昨日收益
@@ -60,7 +60,7 @@ public class WalletAction {
 			profitMoney = walletServiceImpl.profit(isLogin);
 			// 查询账户绑定银行卡
 			bankCardList = walletServiceImpl.bankCard(isLogin);
-			
+
 		}
 		return "wallet";
 	}
@@ -91,12 +91,18 @@ public class WalletAction {
 		return "addSuccess";
 	}
 
+	/**
+	 * 充值
+	 * 
+	 * @return
+	 */
 	public String Recharge() {
 		init();
 		for (WalletModel walletModel : walletList) {
 			recharge = walletModel.getProportion();
 			wallet.setTotalProfit(walletModel.getTotalProfit());
 		}
+		walletServiceImpl.transactions(wallet, isLogin);
 		wallet.setProportion(recharge + wallet.getProportion());
 		wallet.setId(isLogin.getId());
 		boolean isTrue = walletServiceImpl.Recharge(wallet, isLogin);
@@ -106,12 +112,18 @@ public class WalletAction {
 		return "Success";
 	}
 
+	/**
+	 * 提现
+	 * 
+	 * @return
+	 */
 	public String Withdrawals() {
 		init();
 		for (WalletModel walletModel : walletList) {
 			recharge = walletModel.getProportion();
 			wallet.setTotalProfit(walletModel.getTotalProfit());
 		}
+		walletServiceImpl.transactions1(wallet, isLogin);
 		wallet.setProportion(recharge - wallet.getProportion());
 		wallet.setId(isLogin.getId());
 		boolean isTrue = walletServiceImpl.Recharge(wallet, isLogin);
