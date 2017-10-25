@@ -1,129 +1,153 @@
 body {
-		text-align: center;
-		background-color: #E0EEEE;
-		min-height: 800px;
-		min-width: 1100px;
-	}
-	.top {
-		width: 1100px;
-		height: 220px;
-		margin: 0 auto;
-		background-color: #ffffff;
-	}
-	.mid {
-		background-color: #ffffff;
-		width: 1100px;
-		height: 120px;
-		margin: 0 auto;
-	}
-	.bot {
-		height: 300px;
-		width: 1100px;
-		margin: 0 auto;
-		background-color: #E0EEEE;
-	}
-	.top-top {
-		background-color: #E0E0E0;
-		width: 1100px;
-		height: 40px;
-	}
-	.label1 {
-		position: relative;
-		right: 330px;
-		top: 10px;
-		color: #7A8B8B;
-	}
-	.hr1 {
-		height: 1px;
-		border: none;
-		border-top: 1px solid #C9C9C9;
-		position: relative;
-		top: 10px;
-	}
-	.label2 {
-		font-size: 25px;
-		color: #7A7A7A;
-		position: relative;
-		right: 354px;
-		top: 8px;
-	}
-	.label3 {
-		font-style: oblique;
-	}
-	.top-top-a1 {
-		color: #0000FF;
-		text-decoration: none;
-		position: relative;
-		left: 360px;
-		top: 5px;
-	}
-	.font {
-		color: #B5B5B5;
-	}
-	.font1 {
-		font-weight: bold;
-		color: #7A8B8B;
-	}
-	.label4 {
-		position: relative;
-		right: 196px;
-		top: 30px;
-	}
-	.label5 {
-		position: relative;
-		right: 335px;
-		top: 35px;
-	}
-	.label6 {
-		position: relative;
-		right: 470px;
-		color: #7A7A7A;
-		font-size: 30px;
-		top: 10px;
-	}
-	.label7 {
-		position: relative;
-		right: 314px;
-		font-size: 18px;
-		top: 20px;
-	}
-	.label8 {
-		position: relative;
-		left: 300px;
-		color: #C4C4C4;
-		top: 15px;
-	}
-	.label9 {
-		position: relative;
-		right: 340px;
-		top: 30px;
-	}
-	.label-1 {
-		color: #EE0000;
-		font-size: 40px;
-	}
-	.bot-a {
-		text-decoration: none;
-		color: #0000FF;
-	}
-	input {
-		width: 15px;
-		height: 15px;
-		top: 2px;
-		position: relative;
-	}
-	.label-2 {
-		position: relative;
-		top: 30px;
-		right: 410px;
-	}
-	.but {
-		width: 200px;
-		height: 50px;
-		font-size: 30px;
-		color: #ffffff;
-		position: relative;
-		top: 70px;
-		right: 410px;
-		background-color: #EEEE00;
-	}
+	text-align: center;
+	background-color: #E0EEEE;
+	min-height: 800px;
+	min-width: 1100px;
+}
+
+.top {
+	width: 1100px;
+	height: 220px;
+	margin: 0 auto;
+	background-color: #ffffff;
+}
+
+.mid {
+	background-color: #ffffff;
+	width: 1100px;
+	height: 120px;
+	margin: 0 auto;
+}
+
+.bot {
+	height: 300px;
+	width: 1100px;
+	margin: 0 auto;
+	background-color: #E0EEEE;
+}
+
+.top-top {
+	background-color: #E0E0E0;
+	width: 1100px;
+	height: 40px;
+}
+
+.label1 {
+	position: relative;
+	right: 330px;
+	top: 10px;
+	color: #7A8B8B;
+}
+
+.hr1 {
+	height: 1px;
+	border: none;
+	border-top: 1px solid #C9C9C9;
+	position: relative;
+	top: 10px;
+}
+
+.label2 {
+	font-size: 25px;
+	color: #7A7A7A;
+	position: relative;
+	right: 354px;
+	top: 8px;
+}
+
+.label3 {
+	font-style: oblique;
+}
+
+.top-top-a1 {
+	color: #0000FF;
+	text-decoration: none;
+	position: relative;
+	left: 360px;
+	top: 5px;
+}
+
+.font {
+	color: #B5B5B5;
+}
+
+.font1 {
+	font-weight: bold;
+	color: #7A8B8B;
+}
+
+.label4 {
+	position: relative;
+	right: 196px;
+	top: 30px;
+}
+
+.label5 {
+	position: relative;
+	right: 335px;
+	top: 35px;
+}
+
+.label6 {
+	position: relative;
+	right: 470px;
+	color: #7A7A7A;
+	font-size: 30px;
+	top: 10px;
+}
+
+.label7 {
+	position: relative;
+	right: 314px;
+	font-size: 18px;
+	top: 20px;
+}
+
+.label8 {
+	position: relative;
+	left: 300px;
+	color: #C4C4C4;
+	top: 15px;
+}
+
+.label9 {
+	position: relative;
+	right: 340px;
+	top: 30px;
+}
+
+.label-1 {
+	color: #EE0000;
+	font-size: 40px;
+}
+
+.bot-a {
+	text-decoration: none;
+	color: #0000FF;
+}
+
+.label-2 {
+	position: relative;
+	top: 30px;
+	right: 410px;
+}
+
+.but {
+	width: 200px;
+	height: 50px;
+	font-size: 30px;
+	color: #ffffff;
+	position: relative;
+	top: 70px;
+	right: 410px;
+	background-color: #EEEE00;
+}
+#money01 {
+	width: 120px;
+	height: 25px;
+}
+
+#profits {
+	font-size: 25px;
+	color: red;
+}
