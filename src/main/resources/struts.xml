@@ -7,13 +7,16 @@
 	<include file="struts-tfq.xml"></include>
 	<package name="index" namespace="/" extends="json-default">
 
+		<action name="Login" class="LoginAndRegisterAction" method="Login">
+			<result name="login">/index.jsp</result>
+		</action>
 
 		<action name="Login" class="LoginAndRegisterAction" method="Login">
 
 			<result name="login">/user/person.jsp</result>
 
 			<result name="noLogin">/user/login.jsp</result>
-			<result name="admin">/admin/user_mange.html</result>
+			<result name="admin">/admin/user_mange.jsp</result>
 		</action>
 
 		<action name="Wallet" class="WalletAction" method="Wallet">
@@ -48,6 +51,7 @@
 			<result name="alterPassword">/user/succesAlterPassword.html</result>
 		</action>
 
+
 		<action name="Index" class="IndexAction" method="Index">
 			<result name="success">/index.jsp</result>
 			<result type="json"></result>
@@ -58,6 +62,22 @@
 
 		<action name="findStatistics" class="statisticsAction" method="findStatistics">
 			<result name="findStatistics">/admin/statistics.jsp</result>
+		</action>
+		<action name="dimGetUsers" class="UserAction" method="dimGetUsers">
+			<result name="dimGet">/admin/user_mange.jsp</result>
+		</action>
+		<action name="*" class="UserAction" method="{1}">
+			<result name="add">/admin/user_add.jsp</result>
+			<result name="add1">/admin/user_mange.jsp</result>
+			<result name="updat">/admin/alter_user.jsp</result>
+			<result name="updat1">/admin/user_mange.jsp</result>
+			<result name="delet">/admin/user_mange.jsp</result>
+		</action>
+		<action name="countAll" class="UserAction" method="countAll">
+			<result name="userCountAll">/admin/user_number.jsp</result>
+		</action>
+		<action name="findUnds" class="undsAction" method="findUnds">
+			<result name="finUnds">/user/unds.jsp</result>
 		</action>
 
 		<action name="getMyFund" class="undsAction" method="getMyFund">
@@ -93,6 +113,7 @@
 			<result name="listMoney">/admin/fund_money.jsp</result>
 		</action>
 
+
 		<action name="Buy" class="BuyAction" method="Buy">
 			<result name="success">/user/pay.jsp</result>
 			<result name="noLogin">/user/login.jsp</result>
@@ -121,5 +142,4 @@
 		</action>
 
 	</package>
-
 </struts>

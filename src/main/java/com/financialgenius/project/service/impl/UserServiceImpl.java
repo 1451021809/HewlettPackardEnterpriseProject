@@ -79,4 +79,32 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+	public UserModel getUser(UserModel user) {
+		return userDaoImpl.getUser(user);
+	}
+
+	@Override
+	public List<UserModel> getUsers() {
+		return userDaoImpl.getUsers();
+	}
+
+	@Override
+	public void updateUsers(UserModel user) {
+		userDaoImpl.updateUsers(user);
+	}
+
+	@Override
+	public List<UserModel> dimGetUsers(String name) {
+		return userDaoImpl.dimGetUsers(name);
+	}
+
+	@Override
+	public void addUsers(UserModel user) {
+		userDaoImpl.addUsers(user);
+	}
+
+	@Override
+	public void deleteUser(UserModel user) {
+		userDaoImpl.deleteUser(user);
+	}
 }

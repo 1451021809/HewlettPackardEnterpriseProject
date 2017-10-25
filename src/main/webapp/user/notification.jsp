@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -75,6 +75,9 @@
 					</div>
 					<div class="tab">
 						<c:forEach items="${transactionModels}" var="transaction">
+
+
+
 							<div style="font-size: 25px;">您于&nbsp;&nbsp; &nbsp;
 								${transaction.createDate} ${transaction.type}&nbsp; &nbsp;
 								&nbsp; ${transaction.money}&nbsp; 元</div>
@@ -94,6 +97,10 @@
 									</c:if> &nbsp;&nbsp; <a href="getMessage?page.pageNo=${totalpage}">尾页</a>
 								</td>
 							</tr>
+<<<<<<< HEAD
+=======
+
+>>>>>>> dbafcab6c4509aa10e9aa63d674c770a706cae84
 						</div>
 					</div>
 				</div>

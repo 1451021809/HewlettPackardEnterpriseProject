@@ -3,9 +3,6 @@ package com.financialgenius.project.dao;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
-
-import com.financialgenius.project.model.FundModel;
-import com.financialgenius.project.model.ProfitModel;
 import com.financialgenius.project.model.RolesModel;
 import com.financialgenius.project.model.TransactionModel;
 import com.financialgenius.project.model.UserModel;
@@ -20,7 +17,7 @@ public interface UserDao {
 	 */
 	UserModel isLogin(UserModel user);
 
-	boolean deleteUser(UserModel user);
+	void deleteUser(UserModel user);
 
 	// 注册（保存）
 	void register(UserModel userModel);
@@ -37,7 +34,17 @@ public interface UserDao {
 	// 获取总条数
 	int TransactionCount(Long id);
 
+	List<UserModel> getUsers();
+
+	void updateUsers(UserModel user);
+
+	List<UserModel> dimGetUsers(String name);
+
+	void addUsers(UserModel user);
+
 	// 获取角色
 	List<UserModel> getRoles(UserModel user);
+
+	UserModel getUser(UserModel userModel);
 
 }

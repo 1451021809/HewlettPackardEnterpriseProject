@@ -1,8 +1,9 @@
 package com.financialgenius.project.dao.impl;
 
+import java.util.Date;
+
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Set;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -26,9 +27,8 @@ public class UserDaoImpl implements UserDao {
 	private BaseDao baseDao;
 
 	@Override
-	public boolean deleteUser(UserModel user) {
+	public void deleteUser(UserModel user) {
 		baseDao.getHibernateTemplate().delete(user);
-		return true;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -37,7 +37,7 @@ public class UserDaoImpl implements UserDao {
 		String sql = "from UserModel where username=? and password=? and status=?";
 		List<UserModel> list = (List<UserModel>) baseDao.getHibernateTemplate().find(sql, user.getUsername(),
 				user.getPassword(), 1);
-		
+
 		if (list != null && list.size() > 0) {
 			return list.get(0);
 		}
@@ -108,12 +108,44 @@ public class UserDaoImpl implements UserDao {
 		return count.intValue();
 
 	}
+
 	// 获取角色
 	@Override
 	public List<UserModel> getRoles(UserModel user) {
 		String sql = "from UserModel where id=?";
 		List<UserModel> model = (List<UserModel>) baseDao.getHibernateTemplate().find(sql, user.getId());
 		return model;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<UserModel> getUsers() {
+		return (List<UserModel>) baseDao.getHibernateTemplate().find("from UserModel");
+	}
+
+	@Override
+	public void updateUsers(UserModel user) {
+		baseDao.getHibernateTemplate().saveOrUpdate(user);
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<UserModel> dimGetUsers(String name) {
+		return (List<UserModel>) baseDao.getHibernateTemplate().find("from UserModel where name like ?",
+				"%" + name + "%");
+	}
+
+	@Override
+	public void addUsers(UserModel user) {
+		user.setCreateDate(new Date());
+		baseDao.getHibernateTemplate().save(user);
+
+	}
+
+	@Override
+	public UserModel getUser(UserModel userModel) {
+		return baseDao.getHibernateTemplate().get(UserModel.class, userModel.getId());
 	}
 
 }
