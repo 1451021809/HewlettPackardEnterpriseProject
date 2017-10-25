@@ -104,6 +104,7 @@
 
 		<action name="pay" class="BuyAction" method="pay">
 			<result name="success">/user/pay.jsp</result>
+			<result name="noLogin">/user/login.jsp</result>
 		</action>
 		<action name="queryKey" class="shopmageAction" method="queryFundName">
 			<result name="list">/admin/shop_mange.jsp</result>

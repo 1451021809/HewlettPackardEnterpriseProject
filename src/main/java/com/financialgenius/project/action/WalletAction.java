@@ -101,10 +101,10 @@ public class WalletAction {
 		for (WalletModel walletModel : walletList) {
 			recharge = walletModel.getProportion();
 			wallet.setTotalProfit(walletModel.getTotalProfit());
+			walletModel.setId(walletModel.getId());
 		}
 		walletServiceImpl.transactions(wallet, isLogin);
 		wallet.setProportion(recharge + wallet.getProportion());
-		wallet.setId(isLogin.getId());
 		boolean isTrue = walletServiceImpl.Recharge(wallet, isLogin);
 		if (isTrue) {
 			walletList = walletServiceImpl.wallet(wallet, isLogin);
@@ -122,10 +122,10 @@ public class WalletAction {
 		for (WalletModel walletModel : walletList) {
 			recharge = walletModel.getProportion();
 			wallet.setTotalProfit(walletModel.getTotalProfit());
+			walletModel.setId(walletModel.getId());
 		}
 		walletServiceImpl.transactions1(wallet, isLogin);
 		wallet.setProportion(recharge - wallet.getProportion());
-		wallet.setId(isLogin.getId());
 		boolean isTrue = walletServiceImpl.Recharge(wallet, isLogin);
 		if (isTrue) {
 			walletList = walletServiceImpl.wallet(wallet, isLogin);

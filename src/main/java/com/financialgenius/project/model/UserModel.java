@@ -228,4 +228,21 @@ public class UserModel {
 		return "UserModel [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
 				+ ", status=" + status + ", email=" + email + ", createDate=" + createDate + "]";
 	}
+
+	@Override
+	public boolean equals(Object arg0) {
+		System.out.println("equals========");
+		if(!(arg0 instanceof UserModel)){
+			return false;
+		}else {
+			UserModel compareObject = (UserModel)arg0;
+			if(compareObject.id==this.id){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	}
+	
+	
 }

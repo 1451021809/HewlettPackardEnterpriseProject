@@ -60,8 +60,9 @@
 						<li><a href="<%=basePath%>/user/person.jsp">个人信息管理</a></li>
 						<li><a href="Wallet">我的钱包</a></li>
 						<li><a href="getMyFund">我的基金</a></li>
-						<li><a href="bill.html">账单</a></li>
-						<li><a href="notification.html">消息推送</a></li>
+						<li><a href="getBill?id=${isLogin.id}
+						">账单</a><li>
+						<li><a href="getMessage?id=${isLogin.id}">消息推送</a></li>
 					</ul>
 				</div>
 				<div class="right">

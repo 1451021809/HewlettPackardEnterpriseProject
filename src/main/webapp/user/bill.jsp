@@ -30,18 +30,18 @@
 					</a>
 				</h1>
 				<div class="main-nav">
-					<a class="nav-index" href="javaScript:void(0)">首页</a> <a
+					<a class="nav-index" href="<%=basePath%>index.jsp">首页</a> <a
 						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
 						class="nav-index" href="javaScript:void(0)">关于我们</a>
 					<c:if test="${empty isLogin }">
-						<a class="text-login" href="<%=basePath%>/user/login.jsp"> <span
+						<a class="text-login" href="user/login.jsp"> <span
 							class="avata"> <img
 								src="<%=basePath%>/images/header_default.jpg">
 						</span> 登录
 						</a>
 					</c:if>
 					<c:if test="${not empty isLogin }">
-						<a class="text-login" href="<%=basePath%>/user/person.jsp"> <span
+						<a class="text-login" href="user/person.jsp"> <span
 							class="avata"> <img
 								src="<%=basePath%>/images/header_default.jpg">
 						</span> 我的信息

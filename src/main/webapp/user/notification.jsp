@@ -92,23 +92,8 @@
 									</c:if> <c:if test="${pageno>=totalpage}">
 										<a href="#">下一页</a>
 									</c:if> &nbsp;&nbsp; <a href="getMessage?page.pageNo=${totalpage}">尾页</a>
-									<div style="font-size: 25px;">您于&nbsp;&nbsp;&nbsp;&nbsp;${transaction.createDate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${transaction.type}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${transaction.money}元</div>
-									<div style="margin-left: 131px; margin-top: 250px;">
-										<tr>
-											<td colspan="7" rowspan="2">共${count}条记录&nbsp;&nbsp;共${totalpage}页/当前第${pageno}页&nbsp;&nbsp;
-												<a href="find?page.pageNo=1">首页</a>&nbsp;&nbsp; <c:if
-													test="${pageno>1}">
-													<a href="find?page.pageNo=${pageno-1}">上一页</a>
-												</c:if> <c:if test="${pageno<=1}">
-													<a href="#">上一页</a>
-												</c:if> &nbsp;&nbsp; <c:if test="${pageno<totalpage}">
-													<a href="find?page.pageNo=${pageno+1}">下一页</a>
-												</c:if> <c:if test="${pageno>=totalpage}">
-													<a href="#">下一页</a>
-												</c:if> &nbsp;&nbsp; <a href="find?page.pageNo=${totalpage}">尾页</a>
-											</td>
-										</tr>
-									</div>
+								</td>
+							</tr>
 						</div>
 					</div>
 				</div>

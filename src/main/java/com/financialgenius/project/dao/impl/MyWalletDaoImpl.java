@@ -47,20 +47,20 @@ public class MyWalletDaoImpl implements MyWalletDao {
 	}
 
 	@Override
-	public boolean Recharge(WalletModel wallet, UserModel userModel) {
-		baseDao.getHibernateTemplate().update(wallet);
+	public boolean Recharge(WalletModel wallet1, UserModel userModel) {
+		baseDao.getHibernateTemplate().saveOrUpdate(wallet1);
 		return true;
 	}
 
 	@Override
 	public boolean transactions(UserModel userModel) {
-		baseDao.getHibernateTemplate().save(userModel);
-		return false;
+		baseDao.getHibernateTemplate().saveOrUpdate(userModel);
+		return true;
 	}
 
 	@Override
 	public boolean transactions1(UserModel userModel) {
-		baseDao.getHibernateTemplate().save(userModel);
+		baseDao.getHibernateTemplate().saveOrUpdate(userModel);
 		return true;
 	}
 

@@ -66,8 +66,9 @@ public class MyWalletServiceImpl implements MyWalletService {
 
 	// 充值和提现
 	@Override
-	public boolean Recharge(WalletModel wallet, UserModel userModel) {
-		myWalletDaoImpl.Recharge(wallet, userModel);
+	public boolean Recharge(WalletModel wallet1, UserModel userModel) {
+		
+		myWalletDaoImpl.Recharge(wallet1, userModel);
 		return true;
 	}
 

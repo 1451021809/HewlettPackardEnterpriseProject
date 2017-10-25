@@ -88,11 +88,13 @@
 				type="radio" id="t"> <label class="font">同意</label><a href="#"
 				class="bot-a">服务协议及风险提示</a></label> <br> <input type="submit" name=""
 				class="but" value="余额支付">
+				<input type="hidden" name="wallet.id=1">
 		</div>
 		</form>
 
 	</div>
 	<script type="text/javascript">
+	var money = "";
 		$("input").blur(function() {
 			var money01 = $("#money01").val();
 			if(money01===""){
@@ -111,6 +113,11 @@
 						dataType : "json", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
 						success : function(json) {
 							$("#profits").text(json.profit);
+							if(json.noMoney===""){
+								money = "";
+							}else{
+								money = "余额不足，请充值";
+							}
 						},
 						error : function(json) {
 							alert("json=ERROR");
@@ -124,7 +131,12 @@
 		function buy(){
 			var checks = $("#t").is(':checked');
 			if(checks){
-				return true;
+				if(money === "余额不足，请充值"){
+					alert(money);
+				}else{
+					return true;
+				}
+				return false;
 			}else{
 				alert("请仔细阅读并同意服务协议及风险提示!");
 				return false;
