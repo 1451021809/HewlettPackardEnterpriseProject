@@ -7,7 +7,7 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<html lang="en">
+<html>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -34,7 +34,7 @@
 				<div class="controlButton">
 					<button type="submit">登录</button>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
-						href="register.html">
+						href="register.jsp">
 						<button type="button">注册</button>
 					</a>
 				</div>

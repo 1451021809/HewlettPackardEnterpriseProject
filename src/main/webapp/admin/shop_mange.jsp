@@ -14,8 +14,10 @@
 <head>
 <meta charset="UTF-8">
 <title>商品管理</title>
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/admin.css">
-<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/adminStyle.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=basePath%>/css/admin.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=basePath%>/css/adminStyle.css">
 </head>
 
 <body>
@@ -32,14 +34,11 @@
 			<div class="ul-div">
 				<ul>
 					<li class="usermanage first" onmouseenter="showusermanage('usera')"
-						onmouseleave="showusermanage('usera')"><a
-						href="user_mange.html">用户管理</a>
-						<ul>
-							<li class="usera fontsize"><a href="user_number.html">用户人数统计</a>
-							</li>
-							<li class="usera fontsize"><a href="user_area.html">用户来源地区统计</a>
-							</li>
-						</ul></li>
+						onmouseleave="showusermanage('usera')"><form
+							action="UserAction" method="post">
+							<!--<button type="submit">用户管理</button>  -->
+							<a href="getUsers">用户管理</a>
+						</form></li>
 					<li class="usermanage" onmouseenter="showusermanage('fund')"
 						onmouseleave="showusermanage('fund')"><a href="List">商品管理</a>
 						<ul>
@@ -60,13 +59,13 @@
 			<script src="js/ul.js"></script>
 		</div>
 		<div class="right">
-		<form action="queryKey" method="post">
-			<div class="check">
-				<input type="text" name="fundName"> 
-				<input type="submit" value="搜索">
-				
-			</div>
-		</form>
+			<form action="queryKey" method="post">
+				<div class="check">
+					<input type="text" name="fundName"> <input type="submit"
+						value="搜索">
+
+				</div>
+			</form>
 			<table>
 				<thead>
 					<tr>
