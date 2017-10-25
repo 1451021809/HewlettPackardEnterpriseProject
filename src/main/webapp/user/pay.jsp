@@ -135,7 +135,10 @@
 			if (checks) {
 				if (money === "余额不足，请充值") {
 					alert(money);
-				} else {
+
+				} else{
+					alert("购买成功");
+
 					return true;
 				}
 				return false;

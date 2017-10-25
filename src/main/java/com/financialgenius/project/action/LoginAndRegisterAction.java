@@ -81,42 +81,53 @@ public class LoginAndRegisterAction {
 
 	// 根据登录的用户查询该用户的交易信息（消息推送）
 	public String getMessage() {
-		// 获取当前用户登录的Id
-		Long id = isLogin.getId();
-		// 获取总条数
-		Long Count = (long) impl.TransactionCount(id);
-		// 获得当前页码
-		int pageNo = page.getPageNo();
-		// 获取最多显示多少条
-		int pagesize = page.getPagesize();
-		page.setTotalCount(Count);
-		// 获取总页数
-		int totalpage = (int) page.getTotalpage();
-		// 调用service层的分页查询方法
-		transactionModels = impl.findAllByPage(pageNo, pagesize, id);
-		ServletActionContext.getRequest().getSession().setAttribute("count", Count);
-		ServletActionContext.getRequest().getSession().setAttribute("pageno", pageNo);
-		ServletActionContext.getRequest().getSession().setAttribute("totalpage", totalpage);
+		isLogin = impl.isLogin(user);
+		if (isLogin == null) {
+			return "noLogin";
+		} else {
+			// 获取当前用户登录的Id
+			Long id = isLogin.getId();
+			// 获取总条数
+			Long Count = (long) impl.TransactionCount(id);
+			// 获得当前页码
+			int pageNo = page.getPageNo();
+			// 获取最多显示多少条
+			int pagesize = page.getPagesize();
+			page.setTotalCount(Count);
+			// 获取总页数
+			int totalpage = (int) page.getTotalpage();
+			// 调用service层的分页查询方法
+			transactionModels = impl.findAllByPage(pageNo, pagesize, id);
+			ServletActionContext.getRequest().getSession().setAttribute("count", Count);
+			ServletActionContext.getRequest().getSession().setAttribute("pageno", pageNo);
+			ServletActionContext.getRequest().getSession().setAttribute("totalpage", totalpage);
+		}
 		return "message";
 	}
+
 	// 交易表分页查询（消息推送）
 	public String getBill() {
-		// 获取当前用户登录的Id
-		Long id = isLogin.getId();
-		// 获取总条数
-		Long Count = (long) impl.TransactionCount(id);
-		// 获得当前页码
-		int pageNo = page.getPageNo();
-		// 获取最多显示多少条
-		int pagesize = page.getPagesize();
-		page.setTotalCount(Count);
-		// 获取总页数
-		int totalpage = (int) page.getTotalpage();
-		// 调用service层的分页查询方法
-		transactionModels = impl.findAllByPage(pageNo, pagesize, id);
-		ServletActionContext.getRequest().getSession().setAttribute("count", Count);
-		ServletActionContext.getRequest().getSession().setAttribute("pageno", pageNo);
-		ServletActionContext.getRequest().getSession().setAttribute("totalpage", totalpage);
+		isLogin = impl.isLogin(user);
+		if (isLogin == null) {
+			return "noLogin";
+		} else {
+			// 获取当前用户登录的Id
+			Long id = isLogin.getId();
+			// 获取总条数
+			Long Count = (long) impl.TransactionCount(id);
+			// 获得当前页码
+			int pageNo = page.getPageNo();
+			// 获取最多显示多少条
+			int pagesize = page.getPagesize();
+			page.setTotalCount(Count);
+			// 获取总页数
+			int totalpage = (int) page.getTotalpage();
+			// 调用service层的分页查询方法
+			transactionModels = impl.findAllByPage(pageNo, pagesize, id);
+			ServletActionContext.getRequest().getSession().setAttribute("count", Count);
+			ServletActionContext.getRequest().getSession().setAttribute("pageno", pageNo);
+			ServletActionContext.getRequest().getSession().setAttribute("totalpage", totalpage);
+		}
 		return "bill";
 	}
 

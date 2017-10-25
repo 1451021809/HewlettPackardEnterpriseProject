@@ -37,7 +37,7 @@ public class WalletAction {
 
 	// 账户余额
 	private Double recharge;
-
+	private WalletModel model;
 	// 昨日收益
 	private Double profitMoney;
 
@@ -101,11 +101,13 @@ public class WalletAction {
 		for (WalletModel walletModel : walletList) {
 			recharge = walletModel.getProportion();
 			wallet.setTotalProfit(walletModel.getTotalProfit());
-			walletModel.setId(walletModel.getId());
+			wallet.setId(walletModel.getId());
 		}
-		walletServiceImpl.transactions(wallet, isLogin);
+		walletServiceImpl.transactions1(wallet, isLogin);
 		wallet.setProportion(recharge + wallet.getProportion());
+		wallet.setUserId(isLogin.getId());
 		boolean isTrue = walletServiceImpl.Recharge(wallet, isLogin);
+
 		if (isTrue) {
 			walletList = walletServiceImpl.wallet(wallet, isLogin);
 		}
@@ -122,10 +124,11 @@ public class WalletAction {
 		for (WalletModel walletModel : walletList) {
 			recharge = walletModel.getProportion();
 			wallet.setTotalProfit(walletModel.getTotalProfit());
-			walletModel.setId(walletModel.getId());
+			wallet.setId(walletModel.getId());
 		}
 		walletServiceImpl.transactions1(wallet, isLogin);
 		wallet.setProportion(recharge - wallet.getProportion());
+		wallet.setUserId(isLogin.getId());
 		boolean isTrue = walletServiceImpl.Recharge(wallet, isLogin);
 		if (isTrue) {
 			walletList = walletServiceImpl.wallet(wallet, isLogin);

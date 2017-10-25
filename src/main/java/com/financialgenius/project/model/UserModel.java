@@ -69,8 +69,9 @@ public class UserModel {
 	private Set<OrderModel> orders = new HashSet<OrderModel>();
 
 	// 用户与钱包一对一关系
-	@OneToOne(mappedBy = "users", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	private WalletModel walletModel;
+	// @OneToOne(mappedBy = "users", cascade = { CascadeType.ALL }, fetch =
+	// FetchType.EAGER)
+	// private WalletModel walletModel;
 
 	// 用户与收益一对多关系
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER) // 直接加载，可进行增，查改操作
@@ -159,13 +160,13 @@ public class UserModel {
 		this.roles = roles;
 	}
 
-	public WalletModel getWalletModel() {
-		return walletModel;
-	}
-
-	public void setWalletModel(WalletModel walletModel) {
-		this.walletModel = walletModel;
-	}
+	// public WalletModel getWalletModel() {
+	// return walletModel;
+	// }
+	//
+	// public void setWalletModel(WalletModel walletModel) {
+	// this.walletModel = walletModel;
+	// }
 
 	public Set<ProfitModel> getProfitModels() {
 		return profitModels;
@@ -191,8 +192,6 @@ public class UserModel {
 		this.bankCardModels = bankCardModels;
 	}
 
-	
-	
 	public UserModel() {
 		super();
 	}
@@ -223,7 +222,7 @@ public class UserModel {
 		this.email = email;
 		this.createDate = createDate;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "UserModel [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
@@ -233,17 +232,16 @@ public class UserModel {
 	@Override
 	public boolean equals(Object arg0) {
 		System.out.println("equals========");
-		if(!(arg0 instanceof UserModel)){
+		if (!(arg0 instanceof UserModel)) {
 			return false;
-		}else {
-			UserModel compareObject = (UserModel)arg0;
-			if(compareObject.id==this.id){
+		} else {
+			UserModel compareObject = (UserModel) arg0;
+			if (compareObject.id == this.id) {
 				return true;
-			}else{
+			} else {
 				return false;
 			}
 		}
 	}
-	
-	
+
 }
