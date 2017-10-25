@@ -1,6 +1,9 @@
-package com.financialgenius.project.service.impl;
+﻿package com.financialgenius.project.service.impl;
 
 import java.util.List;
+import java.util.Set;
+
+import javax.management.relation.Role;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +14,7 @@ import com.financialgenius.project.model.ProfitModel;
 import com.financialgenius.project.model.RolesModel;
 import com.financialgenius.project.model.TransactionModel;
 import com.financialgenius.project.model.UserModel;
+
 import com.financialgenius.project.model.WalletModel;
 import com.financialgenius.project.service.UserService;
 
@@ -23,6 +27,23 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserModel isLogin(UserModel user) {
 		return userDaoImpl.isLogin(user);
+	}
+
+	// 获取角色
+	@Override
+	public int getRoles(UserModel user) {
+		List<UserModel> model = userDaoImpl.getRoles(user);
+		for (UserModel userModel : model) {
+			Set<RolesModel> rolesModel = userModel.getRoles();
+			for (RolesModel rolesModel2 : rolesModel) {
+				if (rolesModel2.getId() == 1) {
+					return 1;
+				} else {
+					return 2;
+				}
+			}
+		}
+		return 0;
 	}
 
 	// 注册 （添加）
@@ -45,35 +66,17 @@ public class UserServiceImpl implements UserService {
 		return userDaoImpl.getRole(rolesModel);
 	}
 
-	// 查询基金表
+	// 根据登录的用户查询该用户的交易信息（分页查询）
 	@Override
-	public List<FundModel> getFundModel(FundModel fundModel) {
-
-		return userDaoImpl.getFundModel(fundModel);
+	public List<TransactionModel> findAllByPage(int pageNo, int pageSize, Long id) {
+		return userDaoImpl.findAllByPage(pageNo, pageSize, id);
 	}
 
-	// 查询收益表
+	// 获取总条数（分页查询）
 	@Override
-	public List<ProfitModel> getProfitModel(ProfitModel profitModel) {
-
-		return userDaoImpl.getProfitModel(profitModel);
+	public int TransactionCount(Long id) {
+		return userDaoImpl.TransactionCount(id);
 	}
 
-	// 查询交易表
-	@Override
-	public List<TransactionModel> getTransactionModel(TransactionModel transactionModel) {
-
-		return userDaoImpl.getTransactionModel(transactionModel);
-	}
-	// 分页查询交易表
-	@Override
-	public List<TransactionModel> findAllByPage(int pageNo, int pageSize) {
-		return userDaoImpl.findAllByPage(pageNo, pageSize);
-	}
-	// 获取总条数
-	@Override
-	public int TransactionCount() {
-		return userDaoImpl.TransactionCount();
-	}
 
 }

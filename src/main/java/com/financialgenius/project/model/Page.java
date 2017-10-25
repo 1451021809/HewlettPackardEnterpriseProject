@@ -8,7 +8,7 @@ public class Page {
 	// 当前页码
 	private int pageNo = 1;
 	// 页面显示多少条
-	private int pagesize = 5;
+	private int pagesize = 4;
 
 	public long getTotalpage() {
 		return totalpage;

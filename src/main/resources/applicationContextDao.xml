@@ -14,7 +14,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/atm" />
 		<property name="username" value="root" />
-		<property name="password" value="1234" />
+		<property name="password" value="472520" />
 	</bean>
 
 	<!-- hibernate -->
@@ -75,8 +75,7 @@
 
 	<!-- 事物的切面 -->
 	<aop:config>
-		<aop:pointcut
-			expression="execution(* com.financialgenius.project.dao.*.*(..))"
+		<aop:pointcut expression="execution(* com.financialgenius.project.dao.*.*(..))"
 			id="myPointcut"></aop:pointcut>
 		<aop:advisor advice-ref="myAdvice" pointcut-ref="myPointcut" />
 	</aop:config>

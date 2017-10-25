@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%><!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -22,11 +23,19 @@
 				<div class="main-nav">
 					<a class="nav-index" href="javaScript:void(0)">首页</a> <a
 						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
-						class="nav-index" href="javaScript:void(0)">关于我们</a> <a
-						class="text-login" href="login01.html"> <span class="avata">
-							<img src="../images/header_default.jpg">
-					</span> 登录
-					</a>
+						class="nav-index" href="javaScript:void(0)">关于我们</a>
+					<c:if test="${empty isLogin }">
+						<a class="text-login" href="user/login.jsp"> <span
+							class="avata"> <img src="images/header_default.jpg">
+						</span> 登录
+						</a>
+					</c:if>
+					<c:if test="${not empty isLogin }">
+						<a class="text-login" href="user/login.jsp"> <span
+							class="avata"> <img src="images/header_default.jpg">
+						</span> 我的信息
+						</a>
+					</c:if>
 				</div>
 			</div>
 		</div>
@@ -57,13 +66,17 @@
 							<h4>用户账号:${isLogin.username }</h4>
 							<h4>昵称:${isLogin.name }</h4>
 							<br>
-							<h4><a href="UserMange_to_alterUsername">修改昵称</a></h4>
+							<h4>
+								<a href="UserMange_to_alterUsername">修改昵称</a>
+							</h4>
 						</div>
 						<div class="account-right">
 							<h4>邮箱:${isLogin.email }</h4>
 							<h4>注册时间:${isLogin.createDate }</h4>
 							<br>
-							<h4><a href="UserMange_to_alterPassword">修改密码</a></h4>
+							<h4>
+								<a href="UserMange_to_alterPassword">修改密码</a>
+							</h4>
 						</div>
 					</div>
 					<div class="wire"></div>
@@ -94,4 +107,3 @@
 </body>
 
 </html>
-

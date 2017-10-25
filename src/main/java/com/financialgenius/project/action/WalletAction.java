@@ -12,7 +12,6 @@ import com.financialgenius.project.model.ProfitModel;
 import com.financialgenius.project.model.UserModel;
 import com.financialgenius.project.model.WalletModel;
 import com.financialgenius.project.service.impl.MyWalletServiceImpl;
-import com.financialgenius.project.service.impl.UserServiceImpl;
 
 /**
  * 我的钱包
@@ -60,6 +59,7 @@ public class WalletAction {
 			profitMoney = walletServiceImpl.profit(isLogin);
 			// 查询账户绑定银行卡
 			bankCardList = walletServiceImpl.bankCard(isLogin);
+			
 		}
 		return "wallet";
 	}
