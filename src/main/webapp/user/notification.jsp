@@ -60,11 +60,11 @@
 					<div class="balance">
 						<span><h2>推送</h2></span>
 						<div class="icon">
-<<<<<<< HEAD
+
 							<img src="<%=basePath%>/images/money.png">
-=======
+
 							<img src="../images/money.png">
->>>>>>> 607ba00da5679bc798f8f83f3db1de46d831233e
+
 						</div>
 						<div class="deal">
 							<a href="" class="colo">历史消息</a>
@@ -72,7 +72,7 @@
 					</div>
 					<div class="tab">
 						<c:forEach items="${transactionModels}" var="transaction">
-<<<<<<< HEAD
+
 							<div style="font-size: 25px;">您于&nbsp;&nbsp; &nbsp;
 								${transaction.createDate} ${transaction.type}&nbsp; &nbsp;
 								&nbsp; ${transaction.money}&nbsp; 元</div>
@@ -90,7 +90,7 @@
 									</c:if> <c:if test="${pageno>=totalpage}">
 										<a href="#">下一页</a>
 									</c:if> &nbsp;&nbsp; <a href="getMessage?page.pageNo=${totalpage}">尾页</a>
-=======
+
 							<div style="font-size: 25px;">您于&nbsp;&nbsp;&nbsp;&nbsp;${transaction.createDate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${transaction.type}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${transaction.money}元</div>
 						</c:forEach>
 						<div style="margin-left: 131px; margin-top: 250px;">
@@ -106,7 +106,7 @@
 									</c:if> <c:if test="${pageno>=totalpage}">
 										<a href="#">下一页</a>
 									</c:if> &nbsp;&nbsp; <a href="find?page.pageNo=${totalpage}">尾页</a>
->>>>>>> 607ba00da5679bc798f8f83f3db1de46d831233e
+
 								</td>
 							</tr>
 						</div>

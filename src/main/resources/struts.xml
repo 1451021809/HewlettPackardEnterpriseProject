@@ -8,11 +8,9 @@
 	<package name="index" namespace="/" extends="json-default">
 
 
-		<action name="user_*" class="LoginAndRegisterAction" method="{1}">
+		
 
-		<action name="*" class="LoginAndRegisterAction" method="{1}">
-			<result name="login">/index.jsp</result>
-		</action>
+		
 		<action name="Login" class="LoginAndRegisterAction" method="Login">
 
 			<result name="login">/user/person.jsp</result>
@@ -109,7 +107,6 @@
 		<action name="getBill" class="LoginAndRegisterAction" method="getBill">
 			<result name="bill">/user/bill.jsp</result>
 		</action>
-
-	</package>
-
+	
+</package>
 </struts>
