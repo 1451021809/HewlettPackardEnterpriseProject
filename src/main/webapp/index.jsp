@@ -198,7 +198,7 @@
 						<strong>合作金融机构</strong>
 					</div>
 					<hr>
-					<img src="images/organization.png">
+					<img src="<%=basePath%>images/organization.png">
 				</div>
 			</div>
 		</div>
