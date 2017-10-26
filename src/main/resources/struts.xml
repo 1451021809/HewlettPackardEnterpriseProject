@@ -128,14 +128,9 @@
 		</action>
 
 		<action name="pay" class="BuyAction" method="pay">
-			<result name="success">/user/pay.jsp</result>
+			<result name="success">/user/person.jsp</result>
 			<result name="noLogin">/user/login.jsp</result>
 		</action>
-		<action name="queryKey" class="shopmageAction" method="queryFundName">
-			<result name="list">/admin/shop_mange.jsp</result>
-		</action>
-
-
 
 		<action name="getMessage" class="LoginAndRegisterAction"
 			method="getMessage">
@@ -145,6 +140,10 @@
 		<action name="getBill" class="LoginAndRegisterAction" method="getBill">
 			<result name="bill">/user/bill.jsp</result>
 			<result name="noLogin">/user/login.jsp</result>
+		</action>
+		
+		<action name="logout" class="LoginAndRegisterAction" method="logout">
+			<result name="logout">/index.jsp</result>
 		</action>
 
 	</package>

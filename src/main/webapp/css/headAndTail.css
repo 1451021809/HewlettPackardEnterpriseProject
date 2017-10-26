@@ -70,6 +70,11 @@ p {
 
 .head .main-nav a:hover {
 	color: #228bff;
+	border-bottom: none;
+}
+
+.head .main-nav .logout0 a:hover {
+	color: #228bff;
 	border-bottom: 3px solid #228bff;
 }
 

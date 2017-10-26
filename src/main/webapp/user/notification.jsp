@@ -28,22 +28,34 @@
 					</a>
 				</h1>
 				<div class="main-nav">
-					<a class="nav-index" href="<%=basePath%>/index.jsp">首页</a> <a
-						class="nav-index" href="javaScript:void(0)">余额宝</a> <a
-						class="nav-index" href="<%=basePath%>/user/aboutus.jsp">关于我们</a>
 					<c:if test="${empty isLogin }">
-						<a class="text-login" href="<%=basePath%>/user/login.jsp"> <span
-							class="avata"> <img
-								src="<%=basePath%>/images/header_default.jpg">
-						</span> 登录
-						</a>
+						<div class="logout0">
+							<a class="nav-index" href="<%=basePath%>index.jsp">首页</a> <a
+								class="nav-index" href="javaScript:void(0)">余额宝</a> <a
+								class="nav-index" href="<%=basePath%>user/aboutus.jsp">关于我们</a>
+							<a class="text-login" href="<%=basePath%>user/login.jsp"> <span
+								class="avata"> <img
+									src="<%=basePath%>/images/header_default.jpg">
+							</span> 登录
+							</a>
+						</div>
+						<div style="position: absolute; right: -140px;">
+							<a href="logout"></a>
+						</div>
 					</c:if>
 					<c:if test="${not empty isLogin }">
-						<a class="text-login" href="<%=basePath%>/user/person.jsp"> <span
-							class="avata"> <img
-								src="<%=basePath%>/images/header_default.jpg">
-						</span> 我的信息
-						</a>
+						<div class="logout0">
+							<a class="nav-index" href="<%=basePath%>index.jsp">首页</a> <a
+								class="nav-index" href="javaScript:void(0)">余额宝</a> <a
+								class="nav-index" href="<%=basePath%>user/aboutus.jsp">关于我们</a>
+							<a class="text-login" href="<%=basePath%>user/person.jsp"> <span
+								class="avata"> <img
+									src="<%=basePath%>/images/header_default.jpg">
+							</span> 我的信息 
+						</div>
+						<div style="position: absolute; right: -140px;">
+							<a href="logout">退出</a>
+						</div>
 					</c:if>
 				</div>
 			</div>
@@ -79,9 +91,9 @@
 
 
 							<div style="font-size: 25px;">您于&nbsp;&nbsp; &nbsp;
-								${transaction.createDate}&nbsp; &nbsp;
-								&nbsp;&nbsp; ${transaction.type}&nbsp; &nbsp;
-								&nbsp; ${transaction.money}&nbsp; 元</div>
+								${transaction.createDate}&nbsp; &nbsp; &nbsp;&nbsp;
+								${transaction.type}&nbsp; &nbsp; &nbsp;
+								${transaction.money}&nbsp; 元</div>
 						</c:forEach>
 						<div style="left: 40px; margin-top: 160px;">
 							<tr>
